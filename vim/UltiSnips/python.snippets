@@ -1,0 +1,17 @@
+snippet feat
+@_returns_str
+def ${1:group_name}(sentence, index):
+	"""${2:Documentation}
+
+	:param list sentence:	the sentence
+	:param int  index:      the index of the word
+	:returns:               the value of the feature
+	:rtype: 				str
+	"""
+	return ${0:''}
+endsnippet
+
+snippet wd "sentence[index]" i
+sentence[index]
+endsnippet
+

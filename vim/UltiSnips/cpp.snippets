@@ -1,0 +1,42 @@
+snippet gt
+TEST(${1:Suite}, ${2:whatToTest})
+{
+	${0:/* statements */}
+}
+endsnippet
+
+snippet gtf
+TEST_F(${1:Fixture}, ${2:whatToTest})
+{
+	${0:/* statements */}
+}
+endsnippet
+
+snippet gth
+ASSERT_THROW(${1:expression}, ${2:except_type});$0
+endsnippet
+
+snippet gnt
+ASSERT_NO_THROW(${1:expression});$0
+endsnippet
+
+snippet gta
+ASSERT_THROW_ANY(${1:expression});$0
+endsnippet
+
+snippet geq
+ASSERT_EQ(${1:expected}, ${2:expression});$0
+endsnippet
+
+snippet gne
+ASSERT_NE(${1:expected}, ${2:expression});$0
+endsnippet
+
+snippet gat
+ASSERT_TRUE(${1:expression});$0
+endsnippet
+
+snippet gaf
+ASSERT_FALSE(${1:expression});$0
+endsnippet
+
