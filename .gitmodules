@@ -64,7 +64,7 @@
 
 [submodule "vim-blade"]
     path = vim/bundle/vim-blade
-    url = git://github.com/xsbeats/vim-blade.git
+    url = https://github.com/xsbeats/vim-blade.git
 
 [submodule "vim-colors-solarized"]
     path = vim/bundle/vim-colors-solarized
