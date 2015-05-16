@@ -132,7 +132,7 @@ export NVM_DIR="/home/oscar/.nvm"
 
 
 # Add dircolors
-eval `dircolors ~/Projects/dircolors-solarized/dircolors.256dark`
+eval `dircolors ~/Projects/dircolors-solarized/dircolors.ansi-light`
 
 # Tmuxifier
 export EDITOR="vim"

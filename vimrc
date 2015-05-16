@@ -28,7 +28,15 @@ source /home/oscar/.vim/ohmyvim/ohmyvim.vim
 " Paste mode
 set pastetoggle=<F2>
 
-set rtp+=/usr/local/lib/python3.4/dist-packages/powerline/bindings/vim/
+" set rtp+=/usr/local/lib/python3.4/dist-packages/powerline/bindings/vim/
+set statusline=%f
+set statusline+=%=
+set statusline+=%l
+set statusline+=/
+set statusline+=%L
+set statusline=%<%f\ %{fugitive#statusline()}\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+set highlight=sb
+
 
 " Always show statusline
 set laststatus=2
@@ -39,7 +47,7 @@ if $COLORTERM == 'gnome-terminal'
 endif
 
 syntax enable
-set background=dark
+set background=light
 let g:solarized_termcolors=16
 colorscheme solarized
 
@@ -67,11 +75,13 @@ let g:UltiSnipsEditSplit="vertical"
 
 " Python mode preferences
 let g:pymode_python = 'python3'
-let g:pymode_folding = 0
-let g:pymode_run = 0
+set completeopt=menu
+
 
 " Custom stuff that feels right
 nnoremap <leader>w :w<CR>
+nnoremap <leader>q :q<CR>
+nnoremap <leader>x :x<CR>
 inoremap jj <ESC>
 nnoremap <leader>t :! py.test <CR>
-nnoremap <leader>r :! python % <CR>
+nnoremap <leader>r :! python3 % <CR>
