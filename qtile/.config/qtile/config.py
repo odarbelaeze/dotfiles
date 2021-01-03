@@ -75,7 +75,7 @@ keys = [
     Key(
         [mod],
         "Return",
-        lazy.spawn("termite"),
+        lazy.spawn("alacritty"),
         desc="Launch terminal",
     ),
     # Toggle between different layouts as defined below

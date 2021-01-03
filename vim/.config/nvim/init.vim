@@ -54,6 +54,7 @@ nnoremap <leader>sv :so ~/.config/nvim/init.vim <CR>
 
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-t> :Rg<CR>
+nnoremap <C-.> :pumvisible()<CR>
 
 " Wild stuff
 set suffixes+=.a,.o,.pyc
