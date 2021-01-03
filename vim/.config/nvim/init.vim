@@ -21,12 +21,18 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
+Plug 'sheerun/vim-polyglot'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'junegunn/fzf', { 'do': { -> fzf#install() } } | Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
 " Settings
 
 syntax enable
+set ttyfast
+set mouse=a
 
 " Mappgings
 
@@ -37,16 +43,26 @@ nnoremap <leader>x :x <CR>
 nnoremap <leader>nh :nohlsearch <CR>
 nnoremap <leader>nu :set invnumber <CR>
 nnoremap <leader>nt :NERDTreeToggle <CR>
-nnoremap <leader>tt :TagbarToggle <CR>
-nnoremap <leader>st :SyntasticToggleMode <CR>
 nnoremap Y y$
 
 inoremap jj <ESC>
 inoremap kk <ESC>
 inoremap jk <ESC>
 
-nnoremap <leader>ft :! python -m behave <CR>
-
 nnoremap <leader>ev :e ~/.config/nvim/init.vim <CR>
 nnoremap <leader>sv :so ~/.config/nvim/init.vim <CR>
 
+nnoremap <C-p> :GFiles<CR>
+nnoremap <C-t> :Rg<CR>
+
+" Wild stuff
+set suffixes+=.a,.o,.pyc
+set wildignore+=*.o,*.so,*.pyc
+set wildignore+=*/node_modules/*,*/dist/*,*/.tmp*,*/tmp*,*/build/*,*/__pycache__/*,*/venv/*
+
+" NERDTree
+let NERDTreeQuitOnOpen=1
+let NERDTreeAutoDeleteBuffer=1
+let NERDTreeMinimalUI=1
+let NERDTreeDirArrows=1
+let NERDTreeMapOpenInTab='\t'
