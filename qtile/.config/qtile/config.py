@@ -28,17 +28,18 @@ import os
 import subprocess
 from typing import List  # noqa: F401
 
-from libqtile import bar, layout, widget, hook
+from libqtile import bar, hook, layout, widget
 from libqtile.config import Click, Drag, Group, Key, Screen
 from libqtile.lazy import lazy
-
 
 mod = "mod4"
 
 keys = [
     # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.down(), desc="Move focus down in stack pane"),
-    Key([mod], "j", lazy.layout.up(), desc="Move focus up in stack pane"),
+    Key([mod], "k", lazy.layout.up(), desc="Move focus down in stack pane"),
+    Key([mod], "j", lazy.layout.down(), desc="Move focus up in stack pane"),
+    Key([mod], "h", lazy.layout.left(), desc="Move focus to prev stack pane"),
+    Key([mod], "l", lazy.layout.right(), desc="Move focus to next stack pane"),
     Key(
         [mod, "control"],
         "k",
@@ -51,6 +52,18 @@ keys = [
         lazy.layout.shuffle_up(),
         desc="Move window up in current stack ",
     ),
+    Key(
+        [mod, "control"],
+        "h",
+        lazy.layout.shuffle_left(),
+        desc="Move window down in current stack",
+    ),
+    Key(
+        [mod, "control"],
+        "l",
+        lazy.layout.shuffle_right(),
+        desc="Move window up in current stack ",
+    ),
     # Switch window focus to other pane(s) of stack
     Key(
         [mod],
@@ -58,16 +71,12 @@ keys = [
         lazy.layout.next(),
         desc="Switch window focus to other pane(s) of stack",
     ),
-    # Swap panes of split stack
-    Key(
-        [mod, "shift"], "space", lazy.layout.rotate(), desc="Swap panes of split stack"
-    ),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
     Key(
-        [mod, "shift"],
+        [mod, "control"],
         "Return",
         lazy.layout.toggle_split(),
         desc="Toggle between split and unsplit sides of stack",
@@ -84,7 +93,12 @@ keys = [
     Key([mod, "control"], "r", lazy.restart(), desc="Restart qtile"),
     Key([mod, "control"], "q", lazy.shutdown(), desc="Shutdown qtile"),
     Key([mod], "r", lazy.spawncmd(), desc="Spawn a command using a prompt widget"),
-    Key([mod], "slash", lazy.spawn("rofi -show combi"), desc="Spawn a command using rofi"),
+    Key(
+        [mod],
+        "slash",
+        lazy.spawn("rofi -show combi"),
+        desc="Spawn a command using rofi",
+    ),
 ]
 
 groups = [Group(i) for i in "asdfuiop"]
@@ -99,23 +113,27 @@ for i in groups:
                 lazy.group[i.name].toscreen(),
                 desc="Switch to group {}".format(i.name),
             ),
-            # mod1 + shift + letter of group = switch to & move focused window to group
-            Key(
-                [mod, "shift"],
-                i.name,
-                lazy.window.togroup(i.name, switch_group=True),
-                desc="Switch to & move focused window to group {}".format(i.name),
-            ),
+            # mod1 + control + letter of group = switch to & move focused window to group
+            # Key(
+            #     [mod, "control"],
+            #     i.name,
+            #     lazy.window.togroup(i.name, switch_group=True),
+            #     desc="Switch to & move focused window to group {}".format(i.name),
+            # ),
             # Or, use below if you prefer not to switch to that group.
-            # # mod1 + shift + letter of group = move focused window to group
-            # Key([mod, "shift"], i.name, lazy.window.togroup(i.name),
-            #     desc="move focused window to group {}".format(i.name)),
+            # # mod1 + control + letter of group = move focused window to group
+            Key(
+                [mod, "control"],
+                i.name,
+                lazy.window.togroup(i.name),
+                desc="move focused window to group {}".format(i.name),
+            ),
         ]
     )
 
 layouts = [
+    layout.Columns(num_columns=3, margin=5, name="stack 3", split=False),
     layout.MonadTall(margin=5, border_width=1, border_focus="#476cc5"),
-    layout.Stack(num_stacks=2, margin=5),
     layout.Max(),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
@@ -138,7 +156,7 @@ extension_defaults = widget_defaults.copy()
 
 screens = [
     Screen(
-        bottom=bar.Bar(
+        top=bar.Bar(
             [
                 widget.CurrentLayout(),
                 widget.GroupBox(),
@@ -152,7 +170,7 @@ screens = [
                 ),
                 widget.Systray(),
                 # widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
-                widget.PulseVolume(),
+                # widget.PulseVolume(),
                 widget.QuickExit(countdown_format="[    {}!    ]"),
             ],
             30,
