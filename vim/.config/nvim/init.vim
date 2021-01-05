@@ -2,6 +2,9 @@ set nocompatible
 
 runtime vimrc
 
+let g:python_host_prog  = '~/.venvs/nvim-py2/bin/python'
+let g:python3_host_prog  = '~/.venvs/nvim-py3/bin/python'
+
 if empty(glob('~/.config/nvim/autoload/plug.vim'))
   silent !curl -fLo ~/.config/nvim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -68,3 +71,6 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeMapOpenInTab='\t'
+
+" coc extensions
+let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-tsserver', 'coc-prettier', 'coc-go']
