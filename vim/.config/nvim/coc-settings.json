@@ -1,5 +1,6 @@
 {
 	"python.formatting.provider": "black",
+	"python.venvPath": "~/.pyenv/versions/",
 	"coc.preferences.formatOnSaveFiletypes": [
 		"css",
 		"html",

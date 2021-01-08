@@ -36,19 +36,39 @@ mod = "mod4"
 
 keys = [
     # Switch between windows in current stack pane
-    Key([mod], "k", lazy.layout.up(), desc="Move focus down in stack pane"),
-    Key([mod], "j", lazy.layout.down(), desc="Move focus up in stack pane"),
-    Key([mod], "h", lazy.layout.left(), desc="Move focus to prev stack pane"),
-    Key([mod], "l", lazy.layout.right(), desc="Move focus to next stack pane"),
+    Key(
+        [mod],
+        "k",
+        lazy.layout.up(),
+        desc="Move focus down in stack pane",
+    ),
+    Key(
+        [mod],
+        "j",
+        lazy.layout.down(),
+        desc="Move focus up in stack pane",
+    ),
+    Key(
+        [mod],
+        "h",
+        lazy.layout.left(),
+        desc="Move focus to prev stack pane",
+    ),
+    Key(
+        [mod],
+        "l",
+        lazy.layout.right(),
+        desc="Move focus to next stack pane",
+    ),
     Key(
         [mod, "control"],
-        "k",
+        "j",
         lazy.layout.shuffle_down(),
         desc="Move window down in current stack",
     ),
     Key(
         [mod, "control"],
-        "j",
+        "k",
         lazy.layout.shuffle_up(),
         desc="Move window up in current stack ",
     ),
@@ -64,23 +84,35 @@ keys = [
         lazy.layout.shuffle_right(),
         desc="Move window up in current stack ",
     ),
+    Key(
+        [mod, "control", "shift"],
+        "j",
+        lazy.layout.shrink(),
+        desc="Grow down.",
+    ),
+    Key(
+        [mod, "control", "shift"],
+        "k",
+        lazy.layout.grow(),
+        desc="Grow up.",
+    ),
     # Switch window focus to other pane(s) of stack
     Key(
         [mod],
         "space",
-        lazy.layout.next(),
-        desc="Switch window focus to other pane(s) of stack",
+        lazy.layout.toggle_split(),
+        desc="Toggle between split and unsplit sides of stack",
     ),
     # Toggle between split and unsplit sides of stack.
     # Split = all windows displayed
     # Unsplit = 1 window displayed, like Max layout, but still with
     # multiple stack panes
-    Key(
-        [mod, "control"],
-        "Return",
-        lazy.layout.toggle_split(),
-        desc="Toggle between split and unsplit sides of stack",
-    ),
+    # Key(
+    #     [mod, "control"],
+    #     "Return",
+    #     lazy.layout.toggle_split(),
+    #     desc="Toggle between split and unsplit sides of stack",
+    # ),
     Key(
         [mod],
         "Return",
@@ -101,17 +133,39 @@ keys = [
     ),
 ]
 
-groups = [Group(i) for i in "asdfuiop"]
 
-for i in groups:
+_group_info = {
+    "a": {
+        "name": "general",
+    },
+    "s": {
+        "name": "chat",
+    },
+    "d": {
+        "name": "misc",
+    },
+    "f": {
+        "name": "network",
+        "layouts": [layout.Floating()],
+    },
+    "g": {
+        "name": "jack",
+        "layouts": [layout.Floating()],
+    },
+}
+
+
+groups = [Group(**info) for info in _group_info.values()]
+
+for key, info in _group_info.items():
     keys.extend(
         [
             # mod1 + letter of group = switch to group
             Key(
                 [mod],
-                i.name,
-                lazy.group[i.name].toscreen(),
-                desc="Switch to group {}".format(i.name),
+                key,
+                lazy.group[info["name"]].toscreen(),
+                desc="Switch to group {}".format(info["name"]),
             ),
             # mod1 + control + letter of group = switch to & move focused window to group
             # Key(
@@ -124,9 +178,9 @@ for i in groups:
             # # mod1 + control + letter of group = move focused window to group
             Key(
                 [mod, "control"],
-                i.name,
-                lazy.window.togroup(i.name),
-                desc="move focused window to group {}".format(i.name),
+                key,
+                lazy.window.togroup(info["name"]),
+                desc="move focused window to group {}".format(info["name"]),
             ),
         ]
     )
@@ -135,6 +189,7 @@ layouts = [
     layout.Columns(num_columns=3, margin=5, name="stack 3", split=False),
     layout.MonadTall(margin=5, border_width=1, border_focus="#476cc5"),
     layout.Max(),
+    layout.Floating(),
     # Try more layouts by unleashing below layouts.
     # layout.Bsp(),
     # layout.Columns(),
@@ -169,7 +224,7 @@ screens = [
                     name_transform=lambda name: name.upper(),
                 ),
                 widget.Systray(),
-                # widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
+                widget.Clock(format="%Y-%m-%d %a %I:%M %p"),
                 # widget.PulseVolume(),
                 widget.QuickExit(countdown_format="[    {}!    ]"),
             ],
@@ -195,7 +250,7 @@ mouse = [
 dgroups_key_binder = None
 dgroups_app_rules = []  # type: List
 main = None  # WARNING: this is deprecated and will be removed soon
-follow_mouse_focus = True
+follow_mouse_focus = False
 bring_front_click = False
 cursor_warp = False
 floating_layout = layout.Floating(
@@ -225,6 +280,14 @@ focus_on_window_activation = "smart"
 def autostart():
     home = os.path.expanduser("~")
     subprocess.call([os.path.join(home, ".config", "qtile", "autostart.sh")])
+
+
+@hook.subscribe.client_new
+def floating_dialogs(window):
+    dialog = window.window.get_wm_type() == "dialog"
+    transient = window.window.get_wm_transient_for()
+    if dialog or transient:
+        window.floating = True
 
 
 # XXX: Gasp! We're lying here. In fact, nobody really uses or cares about this
