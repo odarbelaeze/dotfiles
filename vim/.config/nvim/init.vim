@@ -22,6 +22,7 @@ Plug 'kana/vim-textobj-user'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'sheerun/vim-polyglot'
@@ -58,7 +59,10 @@ nnoremap <leader>sv :so ~/.config/nvim/init.vim <CR>
 
 nnoremap <C-p> :GFiles<CR>
 nnoremap <C-t> :Rg<CR>
-nnoremap <C-.> :pumvisible()<CR>
+nnoremap <silent> <leader>rg :Rg <C-R><C-W><CR>
+nnoremap <silent> <leader>gd :call CocAction('jumpDefinition')<CR>
+nnoremap <silent> <leader>gr :call CocAction('jumpReferences')<CR>
+nnoremap <silent> <leader>dn :call CocAction('diagnosticNext')<CR>
 
 " Wild stuff
 set suffixes+=.a,.o,.pyc

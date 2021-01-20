@@ -168,20 +168,20 @@ for key, info in _group_info.items():
                 desc="Switch to group {}".format(info["name"]),
             ),
             # mod1 + control + letter of group = switch to & move focused window to group
-            # Key(
-            #     [mod, "control"],
-            #     i.name,
-            #     lazy.window.togroup(i.name, switch_group=True),
-            #     desc="Switch to & move focused window to group {}".format(i.name),
-            # ),
-            # Or, use below if you prefer not to switch to that group.
-            # # mod1 + control + letter of group = move focused window to group
             Key(
                 [mod, "control"],
                 key,
-                lazy.window.togroup(info["name"]),
-                desc="move focused window to group {}".format(info["name"]),
+                lazy.window.togroup(info["name"], switch_group=True),
+                desc="Switch to & move focused window to group {}".format(info["name"]),
             ),
+            # Or, use below if you prefer not to switch to that group.
+            # # mod1 + control + letter of group = move focused window to group
+            # Key(
+            #     [mod, "control"],
+            #     key,
+            #     lazy.window.togroup(info["name"]),
+            #     desc="move focused window to group {}".format(info["name"]),
+            # ),
         ]
     )
 
