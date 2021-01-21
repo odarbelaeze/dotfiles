@@ -12,5 +12,5 @@
 		"python",
 		"lua"
 	],
-	"Lua.diagnostics.globals": ["awesome", "client", "root", "screen"]
+	"Lua.diagnostics.globals": ["awesome", "client", "root", "screen", "mouse", "tag"]
 }
