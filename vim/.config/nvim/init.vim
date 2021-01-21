@@ -38,6 +38,7 @@ syntax enable
 set ttyfast
 set mouse=a
 set nowrap
+set number
 
 " Mappgings
 
