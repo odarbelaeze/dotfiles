@@ -556,4 +556,9 @@ client.connect_signal("request::titlebars", function(c)
     }
 end)
 
-awful.spawn.with_shell("~/.config/awesome/autostart.sh")
+
+-- Gaps
+beautiful.useless_gap = 5
+
+-- Autostart
+awful.spawn.with_shell("~/.config/qtile/autostart.sh")
