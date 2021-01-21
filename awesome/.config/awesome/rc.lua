@@ -48,7 +48,9 @@ end
 
 -- {{{ Variable definitions
 -- Themes define colours, icons, font and wallpapers.
+-- default  gtk  sky  xresources  zenburn
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
+beautiful.font = "Monospace 12"
 
 -- This is used later as the default terminal and editor to run.
 TERMINAL = "alacritty"
