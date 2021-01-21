@@ -9,6 +9,8 @@
 		"typescriptreact",
 		"javascriptreact",
 		"json",
-		"python"
-	]
+		"python",
+		"lua"
+	],
+	"Lua.diagnostics.globals": ["awesome", "client", "root", "screen"]
 }

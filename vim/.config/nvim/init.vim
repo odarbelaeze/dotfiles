@@ -77,4 +77,4 @@ let NERDTreeDirArrows=1
 let NERDTreeMapOpenInTab='\t'
 
 " coc extensions
-let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-tsserver', 'coc-prettier', 'coc-go']
+let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-tsserver', 'coc-prettier', 'coc-go', 'coc-lua']
