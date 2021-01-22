@@ -50,6 +50,8 @@ nnoremap <leader>nh :nohlsearch <CR>
 nnoremap <leader>nu :set invnumber <CR>
 nnoremap <leader>nt :NERDTreeToggle <CR>
 nnoremap Y y$
+vnoremap ,y "+y
+nnoremap ,y "+y
 
 inoremap jj <ESC>
 inoremap kk <ESC>

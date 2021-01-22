@@ -206,7 +206,7 @@ awful.screen.connect_for_each_screen(function(s)
     }
 
     -- Create the wibox
-    s.mywibox = awful.wibar({position = "top", screen = s, heigth = 34})
+    s.mywibox = awful.wibar({ position = "top", screen = s, visible = false })
 
     -- Add widgets to the wibox
     s.mywibox:setup{
@@ -396,6 +396,13 @@ GLOBAL_KEYS = gears.table.join(
         {MODKEY}, "p",
         function() menubar.show() end,
         { description = "show the menubar", group = "launcher" }
+    ),
+    awful.key({ MODKEY }, "b",
+          function ()
+              local myscreen = awful.screen.focused()
+              myscreen.mywibox.visible = not myscreen.mywibox.visible
+          end,
+          { description = "toggle statusbar", group="layout" }
     )
 )
 
