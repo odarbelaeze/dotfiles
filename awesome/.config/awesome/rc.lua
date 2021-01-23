@@ -70,8 +70,9 @@ MODKEY = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    lain.layout.centerwork, -- awful.layout.suit.tile,
-    awful.layout.suit.max, -- awful.layout.suit.max.fullscreen,
+    lain.layout.centerwork,
+    awful.layout.suit.fair,
+    awful.layout.suit.max,
     awful.layout.suit.floating
 }
 -- }}}
@@ -259,13 +260,23 @@ GLOBAL_KEYS = gears.table.join(
     ),
     awful.key(
         {MODKEY}, "j",
-        function() awful.client.focus.byidx(1) end,
-        { description = "focus next by index", group = "client" }
+        function() awful.client.focus.bydirection("down") end,
+        { description = "move focus down", group = "client" }
     ),
     awful.key(
         {MODKEY}, "k",
-        function() awful.client.focus.byidx(-1) end,
-        { description = "focus previous by index", group = "client" }
+        function() awful.client.focus.bydirection("up") end,
+        { description = "move focus up", group = "client" }
+    ),
+    awful.key(
+        {MODKEY}, "h",
+        function() awful.client.focus.bydirection("left") end,
+        { description = "move focus left", group = "client" }
+    ),
+    awful.key(
+        {MODKEY}, "l",
+        function() awful.client.focus.bydirection("right") end,
+        { description = "move focus right", group = "client" }
     ),
     awful.key(
         {MODKEY, "Control"}, "w",
@@ -276,23 +287,28 @@ GLOBAL_KEYS = gears.table.join(
     -- Layout manipulation
     awful.key(
         {MODKEY, "Control"}, "j",
-        function() awful.client.swap.byidx(1) end,
-        { description = "swap with next client by index", group = "client" }
+        function() awful.client.swap.bydirection("down") end,
+        { description = "swap with client down", group = "client" }
     ),
     awful.key(
         {MODKEY, "Control"}, "k",
-        function() awful.client.swap.byidx(-1) end,
-        { description = "swap with previous client by index", group = "client" }
+        function() awful.client.swap.bydirection("up") end,
+        { description = "swap with client up", group = "client" }
     ),
     awful.key(
-        {MODKEY, "Shift"}, "j",
-        function() awful.screen.focus_relative(1) end,
-        { description = "focus the next screen", group = "screen" }
+        {MODKEY, "Control"}, "h",
+        function() awful.client.swap.bydirection("left") end,
+        { description = "swap with client left", group = "client" }
     ),
     awful.key(
-        {MODKEY, "Shift"}, "k",
-        function() awful.screen.focus_relative(-1) end,
-        { description = "focus the previous screen", group = "screen" }
+        {MODKEY, "Control"}, "l",
+        function() awful.client.swap.bydirection("right") end,
+        { description = "swap with client right", group = "client" }
+    ),
+    awful.key(
+        {MODKEY, "Control"}, "w",
+        function() MY_MAIN_MENU:show() end,
+        { description = "show main menu", group = "awesome" }
     ),
     awful.key(
         {MODKEY}, "u",
@@ -322,35 +338,35 @@ GLOBAL_KEYS = gears.table.join(
         {description = "quit awesome", group = "awesome"}
     ),
     awful.key(
-        {MODKEY}, "l",
+        {MODKEY, "Shift"}, "k",
         function() awful.tag.incmwfact(0.05) end,
         { description = "increase master width factor", group = "layout" }
     ),
     awful.key(
-        {MODKEY}, "h",
+        {MODKEY, "Shift"}, "j",
         function() awful.tag.incmwfact(-0.05) end,
         { description = "decrease master width factor", group = "layout" }
     ),
-    awful.key(
-        {MODKEY, "Shift"}, "h",
-        function() awful.tag.incnmaster(1, nil, true) end,
-        { description = "increase the number of master clients", group = "layout" }
-    ),
-    awful.key(
-        {MODKEY, "Shift"}, "l",
-        function() awful.tag.incnmaster(-1, nil, true) end,
-        { description = "decrease the number of master clients", group = "layout" }
-    ),
-    awful.key(
-        {MODKEY, "Control"}, "h",
-        function() awful.tag.incncol(1, nil, true) end,
-        { description = "increase the number of columns", group = "layout" }
-    ),
-    awful.key(
-        {MODKEY, "Control"}, "l",
-        function() awful.tag.incncol(-1, nil, true) end,
-        { description = "decrease the number of columns", group = "layout" }
-    ),
+    -- awful.key(
+    --     {MODKEY, "Shift"}, "h",
+    --     function() awful.tag.incnmaster(1, nil, true) end,
+    --     { description = "increase the number of master clients", group = "layout" }
+    -- ),
+    -- awful.key(
+    --     {MODKEY, "Shift"}, "l",
+    --     function() awful.tag.incnmaster(-1, nil, true) end,
+    --     { description = "decrease the number of master clients", group = "layout" }
+    -- ),
+    -- awful.key(
+    --     {MODKEY, "Control"}, "h",
+    --     function() awful.tag.incncol(1, nil, true) end,
+    --     { description = "increase the number of columns", group = "layout" }
+    -- ),
+    -- awful.key(
+    --     {MODKEY, "Control"}, "l",
+    --     function() awful.tag.incncol(-1, nil, true) end,
+    --     { description = "decrease the number of columns", group = "layout" }
+    -- ),
     awful.key(
         {MODKEY}, "space",
         function() awful.layout.inc(1) end,
@@ -408,7 +424,7 @@ GLOBAL_KEYS = gears.table.join(
 
 CLIENT_KEYS = gears.table.join(
     awful.key(
-        {MODKEY, "Control"}, "i",
+        {MODKEY}, "i",
         function(c)
             c.fullscreen = not c.fullscreen
             c:raise()
@@ -462,7 +478,19 @@ for i, _tag in ipairs(TAGS) do
                    if tag then client.focus:move_to_tag(tag) end
                end
            end,
-           { description = "move focused client to tag " .. _tag, group = "tag" })
+           { description = "move focused client to tag " .. _tag, group = "tag" }
+       ),
+        -- Toggle client to tag.
+       awful.key(
+           {MODKEY, "Shift"}, _tag,
+           function()
+               if client.focus then
+                   local tag = client.focus.screen.tags[i]
+                   if tag then client.focus:toggle_tag(tag) end
+               end
+           end,
+           { description = "move focused client to tag " .. _tag, group = "tag" }
+       )
     )
 end
 
