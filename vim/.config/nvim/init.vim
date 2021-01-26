@@ -52,6 +52,7 @@ nnoremap <leader>nt :NERDTreeToggle <CR>
 nnoremap Y y$
 vnoremap ,y "+y
 nnoremap ,y "+y
+nnoremap ,p "+p
 
 inoremap jj <ESC>
 inoremap kk <ESC>

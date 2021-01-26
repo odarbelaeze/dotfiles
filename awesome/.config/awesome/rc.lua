@@ -151,6 +151,7 @@ local function set_wallpaper(s)
         -- If wallpaper is a function, call it with the screen
         if type(wallpaper) == "function" then wallpaper = wallpaper(s) end
         gears.wallpaper.maximized(wallpaper, s, true)
+        awful.spawn.with_shell("nitrogen --restore")
     end
 end
 
@@ -593,4 +594,6 @@ tag.connect_signal("property::selected",
                    function() focus_on_last_in_history(mouse.screen) end)
 
 -- Autostart
-awful.spawn.with_shell("~/.config/qtile/autostart.sh")
+awful.spawn.with_shell("picom")
+awful.spawn.with_shell("lxsession")
+awful.spawn.with_shell("nitrogen --restore")
