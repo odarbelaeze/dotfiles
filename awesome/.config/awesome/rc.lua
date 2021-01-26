@@ -70,8 +70,8 @@ MODKEY = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
-    lain.layout.centerwork,
     awful.layout.suit.fair,
+    lain.layout.centerwork,
     awful.layout.suit.max,
     awful.layout.suit.floating
 }
@@ -436,6 +436,13 @@ CLIENT_KEYS = gears.table.join(
         {MODKEY}, "w",
         function(c) c:kill() end,
         { description = "close", group = "client" }
+    ),
+    awful.key(
+        {MODKEY, "Control"}, "m",
+        function(c)
+          c.maximized, c.maximized_vertical, c.maximized_horizontal = false, false, false
+        end,
+        { description = "restore maximized", group = "client" }
     ),
     awful.key(
         {MODKEY, "Control"}, "space",
