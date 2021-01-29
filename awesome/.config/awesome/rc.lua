@@ -604,3 +604,4 @@ tag.connect_signal("property::selected",
 awful.spawn.with_shell("picom")
 awful.spawn.with_shell("lxsession")
 awful.spawn.with_shell("nitrogen --restore")
+awful.spawn.with_shell("setxkbmap -layout us -variant altgr-intl")
