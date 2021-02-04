@@ -25,6 +25,7 @@ Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rhubarb'
 Plug 'tpope/vim-surround'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -39,6 +40,9 @@ set ttyfast
 set mouse=a
 set nowrap
 set number
+if exists('+termguicolors')
+  set termguicolors
+endif
 
 " Mappgings
 
@@ -82,3 +86,4 @@ let NERDTreeMapOpenInTab='\t'
 
 " coc extensions
 let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-tsserver', 'coc-prettier', 'coc-go', 'coc-lua']
+hi! CocErrorSign guifg=#4C0593

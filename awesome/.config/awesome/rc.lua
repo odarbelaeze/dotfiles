@@ -172,7 +172,7 @@ awful.screen.connect_for_each_screen(function(s)
     })
 
     awful.tag.add("chat", {layout = awful.layout.layouts[1], screen = s})
-    awful.tag.add("misc", {layout = awful.layout.layouts[1], screen = s})
+    awful.tag.add("misc", {layout = awful.layout.suit.floating, screen = s})
     awful.tag.add("network", {layout = awful.layout.suit.floating, screen = s})
     awful.tag.add("jack", {layout = awful.layout.suit.floating, screen = s})
 
@@ -348,26 +348,6 @@ GLOBAL_KEYS = gears.table.join(
         function() awful.tag.incmwfact(-0.05) end,
         { description = "decrease master width factor", group = "layout" }
     ),
-    -- awful.key(
-    --     {MODKEY, "Shift"}, "h",
-    --     function() awful.tag.incnmaster(1, nil, true) end,
-    --     { description = "increase the number of master clients", group = "layout" }
-    -- ),
-    -- awful.key(
-    --     {MODKEY, "Shift"}, "l",
-    --     function() awful.tag.incnmaster(-1, nil, true) end,
-    --     { description = "decrease the number of master clients", group = "layout" }
-    -- ),
-    -- awful.key(
-    --     {MODKEY, "Control"}, "h",
-    --     function() awful.tag.incncol(1, nil, true) end,
-    --     { description = "increase the number of columns", group = "layout" }
-    -- ),
-    -- awful.key(
-    --     {MODKEY, "Control"}, "l",
-    --     function() awful.tag.incncol(-1, nil, true) end,
-    --     { description = "decrease the number of columns", group = "layout" }
-    -- ),
     awful.key(
         {MODKEY}, "space",
         function() awful.layout.inc(1) end,
@@ -461,9 +441,7 @@ CLIENT_KEYS = gears.table.join(
     )
 )
 
--- Bind all key numbers to tags.
--- Be careful: we use keycodes to make it work on any keyboard layout.
--- This should map on the top row of your keyboard, usually 1 to 9.
+-- Bind keys to tags
 for i, _tag in ipairs(TAGS) do
     GLOBAL_KEYS = gears.table.join(
         GLOBAL_KEYS,
@@ -581,6 +559,7 @@ awful.rules.rules = {
 
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
+    if not awesome.startup then awful.client.setslave(c) end
     if awesome.startup and not c.size_hints.user_position and
         not c.size_hints.program_position then
         -- Prevent clients from being unreachable after screen count changes.
