@@ -40,9 +40,6 @@ set ttyfast
 set mouse=a
 set nowrap
 set number
-if exists('+termguicolors')
-  set termguicolors
-endif
 
 " Mappgings
 
