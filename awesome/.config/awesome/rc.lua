@@ -555,7 +555,13 @@ awful.rules.rules = {
     {
         rule_any = {class = {"QJackCtl", "Spotify"}},
         properties = {tag = "Jack", floating = true}
+    },
+    -- VirtualBox
+    {
+        rule_any = {class = {"VirtualBox"}},
+        properties = {tag = "Misc", floating = true, border_width = 0}
     }
+
 }
 
 -- Signals
