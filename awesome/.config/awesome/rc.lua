@@ -61,6 +61,7 @@ beautiful.useless_gap = 2
 beautiful.wallpaper = '/usr/share/backgrounds/archlinux/mountain.jpg'
 beautiful.border_width = 3
 beautiful.border_focus = "#027CCD"
+beautiful.border_normal = "#CCCCCC"
 
 -- This is used later as the default terminal and editor to run.
 TERMINAL = "alacritty"
