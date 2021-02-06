@@ -57,8 +57,10 @@ end
 -- default  gtk  sky  xresources  zenburn
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "Monospace 12"
-beautiful.useless_gap = 5
+beautiful.useless_gap = 2
 beautiful.wallpaper = '/usr/share/backgrounds/archlinux/mountain.jpg'
+beautiful.border_width = 3
+beautiful.border_focus = "#027CCD"
 
 -- This is used later as the default terminal and editor to run.
 TERMINAL = "alacritty"
@@ -556,6 +558,19 @@ awful.rules.rules = {
 }
 
 -- Signals
+
+-- Big old borders
+client.connect_signal(
+    "focus",
+    function(c)
+        c.border_color = beautiful.border_focus
+    end
+)
+client.connect_signal("unfocus",
+    function(c)
+        c.border_color = beautiful.border_normal
+    end
+)
 
 -- Signal function to execute when a new client appears.
 client.connect_signal("manage", function(c)
