@@ -15,6 +15,7 @@ call plug#begin('~/.config/nvim/bundle')
 
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-sort-motion'
+Plug 'itchyny/lightline.vim'
 Plug 'kana/vim-textobj-entire'
 Plug 'kana/vim-textobj-indent'
 Plug 'kana/vim-textobj-line'
@@ -40,6 +41,7 @@ set ttyfast
 set mouse=a
 set nowrap
 set number
+set backupcopy=yes
 
 " Mappgings
 
@@ -71,8 +73,11 @@ nnoremap <silent> <leader>dn :call CocAction('diagnosticNext')<CR>
 
 " Wild stuff
 set suffixes+=.a,.o,.pyc
-set wildignore+=*.o,*.so,*.pyc
-set wildignore+=*/node_modules/*,*/dist/*,*/.tmp*,*/tmp*,*/build/*,*/__pycache__/*,*/venv/*
+set wildignore+=*.o,*.a,*.so,*.pyc,.git,.git/*
+set wildignore+=node_modules,node_modules/*
+set wildignore+=__pycache__,__pycache__/*
+set wildignore+=.idea,.idea/*
+set wildignore+=.vscode,.vscode/*
 
 " NERDTree
 let NERDTreeQuitOnOpen=1
@@ -80,7 +85,12 @@ let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
 let NERDTreeMapOpenInTab='\t'
+let NERDTreeShowHidden=1
+let NERDTreeRespectWildIgnore=1
 
 " coc extensions
 let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-tsserver', 'coc-prettier', 'coc-go', 'coc-lua']
 hi! CocErrorSign guifg=#4C0593
+
+" Ligthline
+let g:lightline = { 'colorscheme': 'seoul256', }
