@@ -24,7 +24,6 @@ local lain = require('lain')
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
 
--- {{{ Error handling
 -- Check if awesome encountered an error during startup and fell back to
 -- another config (This code will only ever execute for the fallback config)
 if awesome.startup_errors then
@@ -51,16 +50,15 @@ do
         in_error = false
     end)
 end
--- }}}
 
 -- Themes define colours, icons, font and wallpapers.
 -- default  gtk  sky  xresources  zenburn
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "Monospace 12"
-beautiful.useless_gap = 2
+beautiful.useless_gap = 3
 beautiful.wallpaper = '/usr/share/backgrounds/archlinux/mountain.jpg'
 beautiful.border_width = 3
-beautiful.border_focus = "#027CCD"
+beautiful.border_focus = "#FF622C"
 beautiful.border_normal = "#CCCCCC"
 
 -- This is used later as the default terminal and editor to run.
@@ -122,30 +120,36 @@ MY_TEXT_CLOCK = wibox.widget.textclock()
 
 -- Create a wibox for each screen and add it
 local taglist_buttons = gears.table.join(
-                            awful.button({}, 1, function(t) t:view_only() end),
-                            awful.button({MODKEY}, 1, function(t)
+    awful.button({}, 1, function(t) t:view_only() end),
+    awful.button({MODKEY}, 1, function(t)
         if client.focus then client.focus:move_to_tag(t) end
-    end), awful.button({}, 3, awful.tag.viewtoggle),
-                            awful.button({MODKEY}, 3, function(t)
+    end),
+    awful.button({}, 3, awful.tag.viewtoggle),
+    awful.button({MODKEY}, 3, function(t)
         if client.focus then client.focus:toggle_tag(t) end
-    end), awful.button({}, 4, function(t) awful.tag.viewnext(t.screen) end),
-                            awful.button({}, 5, function(t)
+    end),
+    awful.button({}, 4, function(t) awful.tag.viewnext(t.screen) end),
+    awful.button({}, 5, function(t)
         awful.tag.viewprev(t.screen)
-    end))
+    end)
+)
 
 local tasklist_buttons = gears.table.join(
-                             awful.button({}, 1, function(c)
+    awful.button({}, 1, function(c)
         if c == client.focus then
             c.minimized = true
         else
             c:emit_signal("request::activate", "tasklist", {raise = true})
         end
-    end), awful.button({}, 3, function()
+    end),
+    awful.button({}, 3, function()
         awful.menu.client_list({theme = {width = 250}})
-    end), awful.button({}, 4, function() awful.client.focus.byidx(1) end),
-                             awful.button({}, 5, function()
+    end),
+    awful.button({}, 4, function() awful.client.focus.byidx(1) end),
+    awful.button({}, 5, function()
         awful.client.focus.byidx(-1)
-    end))
+    end)
+)
 
 local function set_wallpaper(s)
     -- Wallpaper
@@ -606,3 +610,4 @@ awful.spawn.with_shell("picom")
 awful.spawn.with_shell("lxsession")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("setxkbmap -layout us -variant altgr-intl")
+awful.spawn.with_shell("enpass")

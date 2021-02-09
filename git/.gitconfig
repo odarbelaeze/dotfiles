@@ -5,3 +5,7 @@
 	defaultBranch = main
 [pull]
 	ff = only
+[core]
+	excludesfile = /home/oscar/.gitignore_global
+[push]
+	default = current
