@@ -5,7 +5,6 @@
 # set by alacritty itself.
 env:
   TERM: xterm-256color
-#
 # This value is used to set the `$TERM` environment variable for
 # each instance of Alacritty. If it is not present, alacritty will
 # check the local terminfo database and use `alacritty` if it is
@@ -80,6 +79,8 @@ window:
 
 # Font configuration
 font:
+  normal:
+    family: "MesloLGLDZ Nerd Font"
   # Normal (roman) font face
   # normal:
   # Font family

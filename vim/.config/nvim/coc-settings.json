@@ -4,13 +4,14 @@
 	"coc.preferences.formatOnSaveFiletypes": [
 		"css",
 		"html",
-		"typescript",
 		"javascript",
-		"typescriptreact",
 		"javascriptreact",
 		"json",
+		"lua",
+		"markdown",
 		"python",
-		"lua"
+		"typescript",
+		"typescriptreact"
 	],
 	"Lua.diagnostics.globals": ["awesome", "client", "root", "screen", "mouse", "tag"]
 }
