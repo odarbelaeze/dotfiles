@@ -28,6 +28,7 @@ antigen bundle lukechilds/zsh-nvm
 # Quality of life
 antigen bundle z
 antigen bundle colored-man-pages
+antigen bundle ssh-agent
 
 # Fish like
 antigen bundle zsh-users/zsh-syntax-highlighting
