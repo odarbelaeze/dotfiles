@@ -12,7 +12,8 @@ alias zs="source ~/.zshrc"
 export ZSH="/home/oscar/.oh-my-zsh"
 
 # Antigen plugin manager
-source /usr/share/zsh/share/antigen.zsh
+[ -f /usr/share/zsh/share/antigen.zsh ] && source /usr/share/zsh/share/antigen.zsh
+[ -f /usr/local/share/antigen/antigen.zsh ] && source /usr/local/share/antigen/antigen.zsh
 
 # Manage oh-my-zsh
 antigen use oh-my-zsh
