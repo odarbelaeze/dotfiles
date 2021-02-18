@@ -42,6 +42,7 @@ set mouse=a
 set nowrap
 set number
 set backupcopy=yes
+set noshowmode
 
 " Mappgings
 
@@ -93,4 +94,4 @@ let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-tsserver', 'coc-p
 hi! CocErrorSign guifg=#4C0593
 
 " Ligthline
-let g:lightline = { 'colorscheme': 'seoul256', }
+let g:lightline = { 'colorscheme': 'seoul256', 'active': { 'left': [['mode', 'paste'], ['readonly', 'relativepath', 'modified']], },  }

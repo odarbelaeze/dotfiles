@@ -2,10 +2,9 @@ eval "$(starship init zsh)"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+[ -f ~/.tokens.sh ] && source ~/.tokens.sh
 
 alias vim="nvim"
-
-# Config aliases
 alias ze="nvim ~/.zshrc"
 alias zs="source ~/.zshrc"
 
@@ -22,6 +21,7 @@ antigen use oh-my-zsh
 antigen bundle git
 
 # Version manager
+antigen bundle rbenv
 antigen bundle pyenv
 antigen bundle lukechilds/zsh-nvm
 

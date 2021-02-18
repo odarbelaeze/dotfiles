@@ -378,6 +378,16 @@ GLOBAL_KEYS = gears.table.join(
 
     -- Prompt
     awful.key(
+        {MODKEY, "Control"}, "p",
+        function() awful.util.spawn_with_shell("sleep 0.5 && scrot -b -u") end,
+        { description = "run prompt", group = "launcher" }
+    ),
+    awful.key(
+        {MODKEY, "Shift"}, "p",
+        function() awful.util.spawn_with_shell("sleep 0.5 && scrot -s") end,
+        { description = "run prompt", group = "launcher" }
+    ),
+    awful.key(
         {MODKEY}, "/",
         function() awful.util.spawn("rofi -show combi") end,
         { description = "run prompt", group = "launcher" }
