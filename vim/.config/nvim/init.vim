@@ -13,6 +13,7 @@ endif
 
 call plug#begin('~/.config/nvim/bundle')
 
+Plug 'ap/vim-css-color'
 Plug 'bronson/vim-trailing-whitespace'
 Plug 'christoomey/vim-sort-motion'
 Plug 'itchyny/lightline.vim'
@@ -43,6 +44,9 @@ set nowrap
 set number
 set backupcopy=yes
 set noshowmode
+set fillchars+=vert:\ 
+highlight LineNr ctermbg=8
+highlight VertSplit ctermbg=8 cterm=NONE
 
 " Mappgings
 
