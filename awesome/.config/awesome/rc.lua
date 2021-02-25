@@ -17,9 +17,6 @@ local naughty = require("naughty")
 local menubar = require("menubar")
 local hotkeys_popup = require("awful.hotkeys_popup")
 
--- liam
-local lain = require('lain')
-
 -- Enable hotkeys help widget for VIM and other apps
 -- when client with a matching name is opened:
 require("awful.hotkeys_popup.keys")
@@ -72,8 +69,8 @@ MODKEY = "Mod4"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile.right,
+    awful.layout.suit.tile.left,
     awful.layout.suit.fair,
-    lain.layout.centerwork,
     awful.layout.suit.max,
     awful.layout.suit.floating
 }
