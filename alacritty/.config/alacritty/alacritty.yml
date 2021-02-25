@@ -31,8 +31,8 @@ window:
   # Blank space added around the window in pixels. This padding is scaled
   # by DPI and the specified value is always added at both opposing sides.
   padding:
-    x: 10
-    y: 10
+    x: 1
+    y: 1
 
   # Spread additional padding evenly around the terminal content.
   dynamic_padding: false
@@ -150,40 +150,32 @@ font:
 # If `true`, bold text is drawn using the bright color variants.
 #draw_bold_text_with_bright_colors: false
 colors:
-  # Default colors
+  name: Neon
+  author: ""
   primary:
-    background: '#011627'
-    foreground: '#acb4c2'
-
+    background: "#171717"
+    foreground: "#f8f8f8"
   cursor:
-    text: '#fafafa'
-    cursor: '#9ca1aa'
-
-  selection:
-    text: '#080808'
-    background: '#b2ceee'
-
-  # Normal colors
+    text: "#171717"
+    cursor: "#f8f8f8"
   normal:
-    black: '#1d3b53'
-    red: '#fc514e'
-    green: '#a1cd5e'
-    yellow: '#e3d18a'
-    blue: '#82aaff'
-    magenta: '#c792ea'
-    cyan: '#7fdbca'
-    white: '#a1aab8'
-
-  # Bright colors
+    black: "#171717"
+    red: "#d81765"
+    green: "#97d01a"
+    yellow: "#ffa800"
+    blue: "#16b1fb"
+    magenta: "#ff2491"
+    cyan: "#0fdcb6"
+    white: "#ebebeb"
   bright:
-    black: '#7c8f8f'
-    red: '#ff5874'
-    green: '#21c7a8'
-    yellow: '#ecc48d'
-    blue: '#82aaff'
-    magenta: '#ae81ff'
-    cyan: '#7fdbca'
-    white: '#d6deeb'
+    black: "#38252c"
+    red: "#ff0000"
+    green: "#76b639"
+    yellow: "#e1a126"
+    blue: "#289cd5"
+    magenta: "#ff2491"
+    cyan: "#0a9b81"
+    white: "#f8f8f8"
 
 # Visual Bell
 #

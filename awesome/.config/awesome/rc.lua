@@ -57,7 +57,7 @@ beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "Monospace 12"
 beautiful.useless_gap = 3
 beautiful.wallpaper = '/usr/share/backgrounds/archlinux/mountain.jpg'
-beautiful.border_width = 3
+beautiful.border_width = 1
 beautiful.border_focus = "#FF622C"
 beautiful.border_normal = "#CCCCCC"
 
@@ -71,12 +71,12 @@ MODKEY = "Mod4"
 
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
+    awful.layout.suit.tile.right,
     awful.layout.suit.fair,
     lain.layout.centerwork,
     awful.layout.suit.max,
     awful.layout.suit.floating
 }
--- }}}
 
 -- Create a launcher widget and a main menu
 MY_AWESOME_MENU = {
@@ -312,11 +312,6 @@ GLOBAL_KEYS = gears.table.join(
         {MODKEY, "Control"}, "l",
         function() awful.client.swap.bydirection("right") end,
         { description = "swap with client right", group = "client" }
-    ),
-    awful.key(
-        {MODKEY, "Control"}, "w",
-        function() MY_MAIN_MENU:show() end,
-        { description = "show main menu", group = "awesome" }
     ),
     awful.key(
         {MODKEY}, "u",
@@ -612,8 +607,10 @@ local function focus_on_last_in_history(screen)
     end
 end
 
-tag.connect_signal("property::selected",
-                   function() focus_on_last_in_history(mouse.screen) end)
+tag.connect_signal(
+    "property::selected",
+    function() focus_on_last_in_history(mouse.screen) end
+)
 
 -- Autostart
 awful.spawn.with_shell("picom")

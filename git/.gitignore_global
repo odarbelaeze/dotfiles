@@ -2,3 +2,4 @@ scratch/
 .python-version
 pyrightconfig.json
 .ruby-version
+.terraform.lock.hcl
