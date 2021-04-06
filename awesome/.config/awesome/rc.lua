@@ -52,11 +52,12 @@ end
 -- default  gtk  sky  xresources  zenburn
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "Monospace 12"
-beautiful.useless_gap = 3
+beautiful.useless_gap = 2
 beautiful.wallpaper = '/usr/share/backgrounds/archlinux/mountain.jpg'
-beautiful.border_width = 1
+beautiful.border_width = 3
 beautiful.border_focus = "#FF622C"
 beautiful.border_normal = "#CCCCCC"
+beautiful.notification_max_height = 100
 
 -- This is used later as the default terminal and editor to run.
 TERMINAL = "alacritty"
@@ -615,3 +616,4 @@ awful.spawn.with_shell("lxsession")
 awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("setxkbmap -layout us -variant altgr-intl")
 awful.spawn.with_shell("enpass")
+awful.spawn.with_shell("nm-applet")

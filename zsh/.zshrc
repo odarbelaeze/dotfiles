@@ -2,13 +2,16 @@ eval "$(starship init zsh)"
 
 export VISUAL=nvim
 export EDITOR="$VISUAL"
+export PYTHONDONTWRITEBYTECODE=1
+export ZSH="/home/oscar/.oh-my-zsh"
+
 [ -f ~/.tokens.sh ] && source ~/.tokens.sh
 
+# Aliases
 alias vim="nvim"
 alias ze="nvim ~/.zshrc"
 alias zs="source ~/.zshrc"
-
-export ZSH="/home/oscar/.oh-my-zsh"
+alias ppp="export PYTHONPATH=$PWD"
 
 # Antigen plugin manager
 [ -f /usr/share/zsh/share/antigen.zsh ] && source /usr/share/zsh/share/antigen.zsh
