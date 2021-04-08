@@ -1,19 +1,20 @@
 {
-	"python.formatting.provider": "black",
-	"python.venvPath": "~/.pyenv/versions/",
-	"python.formatting.blackPath": "/usr/bin/black",
-	"coc.preferences.formatOnSaveFiletypes": [
-		"css",
-		"go",
-		"html",
-		"javascript",
-		"javascriptreact",
-		"json",
-		"lua",
-		"markdown",
-		"python",
-		"typescript",
-		"typescriptreact"
-	],
-	"Lua.diagnostics.globals": ["awesome", "client", "root", "screen", "mouse", "tag"]
+  "python.formatting.provider": "black",
+  "python.venvPath": "~/.pyenv/versions/",
+  "python.formatting.blackPath": "/usr/bin/black",
+  "coc.preferences.formatOnSaveFiletypes": [
+    "css",
+    "go",
+    "html",
+    "javascript",
+    "javascriptreact",
+    "json",
+    "lua",
+    "markdown",
+    "python",
+    "typescript",
+    "typescriptreact"
+  ],
+  "Lua.diagnostics.globals": ["awesome", "client", "root", "screen", "mouse", "tag"],
+  "prettier.proseWrap": "always"
 }

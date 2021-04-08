@@ -52,9 +52,9 @@ end
 -- default  gtk  sky  xresources  zenburn
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "Monospace 12"
-beautiful.useless_gap = 2
+beautiful.useless_gap = 3
 beautiful.wallpaper = '/usr/share/backgrounds/archlinux/mountain.jpg'
-beautiful.border_width = 3
+beautiful.border_width = 2
 beautiful.border_focus = "#FF622C"
 beautiful.border_normal = "#CCCCCC"
 beautiful.notification_max_height = 100

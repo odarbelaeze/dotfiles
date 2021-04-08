@@ -57,10 +57,11 @@ nnoremap <leader>x :x <CR>
 nnoremap <leader>nh :nohlsearch <CR>
 nnoremap <leader>nu :set invnumber <CR>
 nnoremap <leader>nt :NERDTreeToggle <CR>
+nnoremap <leader>pd :read! date +'\%y-\%m-\%d' <CR>
 nnoremap Y y$
-vnoremap ,y "+y
-nnoremap ,y "+y
-nnoremap ,p "+p
+vnoremap <leader>y "+y
+nnoremap <leader>y "+y
+nnoremap <leader>p "+p
 
 inoremap jj <ESC>
 inoremap kk <ESC>
