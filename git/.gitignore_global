@@ -3,3 +3,5 @@ scratch/
 pyrightconfig.json
 .ruby-version
 .terraform.lock.hcl
+docker-compose.override.yml
+docker-compose.override.yaml

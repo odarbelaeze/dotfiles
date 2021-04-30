@@ -86,7 +86,7 @@ set wildignore+=.idea,.idea/*
 set wildignore+=.vscode,.vscode/*
 
 " NERDTree
-let NERDTreeQuitOnOpen=0
+let NERDTreeQuitOnOpen=1
 let NERDTreeAutoDeleteBuffer=1
 let NERDTreeMinimalUI=1
 let NERDTreeDirArrows=1
