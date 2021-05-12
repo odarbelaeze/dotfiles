@@ -10,5 +10,5 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style)'
 disabled = true
 
 [git_branch]
-truncate_length = 12
+truncation_length = 12
 
