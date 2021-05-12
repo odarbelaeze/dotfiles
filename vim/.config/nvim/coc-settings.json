@@ -16,6 +16,5 @@
     "typescript",
     "typescriptreact"
   ],
-  "Lua.diagnostics.globals": ["awesome", "client", "root", "screen", "mouse", "tag"],
-  "prettier.proseWrap": "always"
+  "Lua.diagnostics.globals": ["awesome", "client", "root", "screen", "mouse", "tag"]
 }

@@ -1,0 +1,14 @@
+[gcloud]
+disabled = true
+
+[python]
+pyenv_version_name = true
+pyenv_prefix = ""
+format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style)'
+
+[cmd_duration]
+disabled = true
+
+[git_branch]
+truncate_length = 12
+

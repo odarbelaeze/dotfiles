@@ -70,12 +70,13 @@ inoremap jk <ESC>
 nnoremap <leader>ev :e ~/.config/nvim/init.vim <CR>
 nnoremap <leader>sv :so ~/.config/nvim/init.vim <CR>
 
-nnoremap <C-p> :GFiles<CR>
+nnoremap <C-p> :Files %:p:h<CR>
 nnoremap <C-t> :Rg<CR>
 nnoremap <silent> <leader>rg :Rg <C-R><C-W><CR>
 nnoremap <silent> <leader>gd :call CocAction('jumpDefinition')<CR>
 nnoremap <silent> <leader>gr :call CocAction('jumpReferences')<CR>
 nnoremap <silent> <leader>dn :call CocAction('diagnosticNext')<CR>
+nnoremap <silent> <leader>is :! isort %<CR><CR>
 
 " Wild stuff
 set suffixes+=.a,.o,.pyc
