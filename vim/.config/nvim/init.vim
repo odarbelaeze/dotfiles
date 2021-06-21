@@ -96,7 +96,7 @@ let NERDTreeShowHidden=1
 let NERDTreeRespectWildIgnore=1
 
 " coc extensions
-let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-tsserver', 'coc-prettier', 'coc-go', 'coc-lua', 'coc-rls']
+let g:coc_global_extensions = ['coc-json', 'coc-pyright', 'coc-tsserver', 'coc-prettier', 'coc-go', 'coc-lua', 'coc-rls', 'coc-styled-components']
 hi! CocErrorSign guifg=#4C0593
 
 " Ligthline
