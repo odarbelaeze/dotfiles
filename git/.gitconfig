@@ -1,6 +1,7 @@
 [user]
 	name = Oscar Arbelaez
 	email = oscar@arbelaez.dev
+	signingkey = 590C8B8D13D0C135
 [init]
 	defaultBranch = main
 [pull]
@@ -9,3 +10,5 @@
 	excludesfile = /home/oscar/.gitignore_global
 [push]
 	default = current
+[commit]
+	gpgsign = true

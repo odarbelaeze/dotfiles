@@ -11,7 +11,7 @@ window:
 font:
   normal:
     family: MesloLGLDZ Nerd Font
-  size: 12
+  size: 13
   offset:
     x: 0
     y: 0
