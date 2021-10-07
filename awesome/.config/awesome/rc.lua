@@ -349,6 +349,16 @@ GLOBAL_KEYS = gears.table.join(
         { description = "decrease master width factor", group = "layout" }
     ),
     awful.key(
+        {MODKEY, "Shift", "Control"}, "k",
+        function() awful.tag.incncol(1, nil, true) end,
+        { description = "increase number of stacks", group = "layout" }
+    ),
+    awful.key(
+        {MODKEY, "Shift", "Control"}, "j",
+        function() awful.tag.incncol(-1, nil, true) end,
+        { description = "decrease number of stacks", group = "layout" }
+    ),
+    awful.key(
         {MODKEY}, "space",
         function() awful.layout.inc(1) end,
         { description = "select next", group = "layout" }
@@ -410,6 +420,21 @@ GLOBAL_KEYS = gears.table.join(
               myscreen.mywibox.visible = not myscreen.mywibox.visible
           end,
           { description = "toggle statusbar", group="layout" }
+    ),
+    awful.key(
+        {}, "XF86AudioPlay",
+        function() awful.util.spawn("playerctl play-pause") end,
+        { description = "toggle play music", group = "media" }
+    ),
+    awful.key(
+        {}, "XF86AudioNext",
+        function() awful.util.spawn("playerctl next") end,
+        { description = "toggle play music", group = "media" }
+    ),
+    awful.key(
+        {}, "XF86AudioPrev",
+        function() awful.util.spawn("playerctl previous") end,
+        { description = "toggle play music", group = "media" }
     )
 )
 

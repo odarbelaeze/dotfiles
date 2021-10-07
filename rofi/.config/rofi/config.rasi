@@ -1,0 +1,8 @@
+configuration {
+  combi-modi: "window,drun,run";
+  modi: "window,drun,run";
+  font: "MesloLGLDZ Nerd Font 12";
+}
+
+@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+

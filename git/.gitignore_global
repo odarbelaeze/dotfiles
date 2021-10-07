@@ -5,3 +5,4 @@ pyrightconfig.json
 .terraform.lock.hcl
 docker-compose.override.yml
 docker-compose.override.yaml
+.vim
