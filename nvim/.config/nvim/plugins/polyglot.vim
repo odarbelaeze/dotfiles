@@ -1,4 +1,3 @@
-Plug 'editorconfig/editorconfig-vim'
+Plug 'sheerun/vim-polyglot'
 
-let g:EditorConfig_exclude_patterns = ['fugitive://.*']
-
+let g:vim_markdown_new_list_item_indent = 0
