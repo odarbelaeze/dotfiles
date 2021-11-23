@@ -83,6 +83,9 @@ source ~/.config/nvim/plugins/goodies.vim
 source ~/.config/nvim/plugins/fugitive.vim
 source ~/.config/nvim/plugins/editorconfig.vim
 source ~/.config/nvim/plugins/polyglot.vim
+source ~/.config/nvim/plugins/vim-test.vim
+source ~/.config/nvim/plugins/floaterm.vim
+source ~/.config/nvim/plugins/dracula.vim
 
 call plug#end()
 
