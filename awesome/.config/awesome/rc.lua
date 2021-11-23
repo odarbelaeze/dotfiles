@@ -52,15 +52,15 @@ end
 -- default  gtk  sky  xresources  zenburn
 beautiful.init(gears.filesystem.get_themes_dir() .. "default/theme.lua")
 beautiful.font = "Monospace 12"
-beautiful.useless_gap = 3
+beautiful.useless_gap = 5
 beautiful.wallpaper = '/usr/share/backgrounds/archlinux/mountain.jpg'
-beautiful.border_width = 0
-beautiful.border_focus = "#FF622C"
+beautiful.border_width = 2
+beautiful.border_focus = "#008080"
 beautiful.border_normal = "#CCCCCC"
 beautiful.notification_max_height = 100
 
 -- This is used later as the default terminal and editor to run.
-TERMINAL = "alacritty"
+TERMINAL = "kitty"
 EDITOR = os.getenv("EDITOR") or "nvim"
 EDITOR_COMMAND = TERMINAL .. " -e " .. EDITOR
 

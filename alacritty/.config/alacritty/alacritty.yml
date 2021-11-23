@@ -11,32 +11,42 @@ window:
 font:
   normal:
     family: MesloLGLDZ Nerd Font
-  size: 13
+  size: 12
   offset:
     x: 0
     y: 0
 colors:
+  cursor:
+    text: '#fefff2'
+    cursor: '#f0cc09'
+
+  selection:
+    text: '#b5b5b5'
+    background: '#18354f'
+
   primary:
-    background: "#282828"
-    foreground: "#eeeeee"
+    background: '#132738'
+    foreground: '#ffffff'
+
   normal:
-    black: "#282828"
-    red: "#f43753"
-    green: "#c9d05c"
-    yellow: "#ffc24b"
-    blue: "#b3deef"
-    magenta: "#d3b987"
-    cyan: "#73cef4"
-    white: "#eeeeee"
+    black: '#000000'
+    red: '#ff0000'
+    green: '#38de21'
+    yellow: '#ffe50a'
+    blue: '#1460d2'
+    magenta: '#ff005d'
+    cyan: '#00bbbb'
+    white: '#bbbbbb'
+
   bright:
-    black: "#4c4c4c"
-    red: "#f43753"
-    green: "#c9d05c"
-    yellow: "#ffc24b"
-    blue: "#b3deef"
-    magenta: "#d3b987"
-    cyan: "#73cef4"
-    white: "#feffff"
+    black: '#555555'
+    red: '#f40e17'
+    green: '#3bd01d'
+    yellow: '#edc809'
+    blue: '#5555ff'
+    magenta: '#ff55ff'
+    cyan: '#6ae3fa'
+    white: '#ffffff'
 background_opacity: 1
 key_bindings:
   - key: N

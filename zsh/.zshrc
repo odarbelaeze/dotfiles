@@ -3,6 +3,7 @@ eval "$(starship init zsh)"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PYTHONDONTWRITEBYTECODE=1
+export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH"
 export ANTIGEN_LOG="$HOME/.cache/antigen.log"

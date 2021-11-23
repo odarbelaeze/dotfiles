@@ -45,8 +45,9 @@ set number
 set backupcopy=yes
 set noshowmode
 set fillchars+=vert:\ 
-highlight LineNr ctermbg=8
-highlight VertSplit ctermbg=8 cterm=NONE
+set listchars=tab:→\ ,trail:·,precedes:←,extends:→,nbsp:·,space:·
+" highlight LineNr ctermbg=8
+" highlight VertSplit ctermbg=8 cterm=NONE
 
 " Mappgings
 
