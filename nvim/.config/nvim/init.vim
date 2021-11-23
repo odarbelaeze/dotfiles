@@ -91,7 +91,7 @@ call plug#end()
 
 doautocmd User PlugLoaded " Allow plugin files to hook up to after plug is loaded
 
-" Micellaneous
+" Miscellaneous
 
 augroup FileTypeOverrides
     autocmd!
