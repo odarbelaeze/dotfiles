@@ -19,6 +19,7 @@ command! -bang -nargs=? -complete=dir AllFiles
 
 nmap <leader>f :Files<cr>
 nmap <leader>F :AllFiles<cr>
+nmap <leader>G :GitFiles<cr>
 nmap <leader>b :Buffers<cr>
 nmap <leader>h :History<cr>
 nmap <leader>r :Rg<cr>

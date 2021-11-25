@@ -4,15 +4,17 @@
   "python.formatting.blackPath": "/usr/bin/black",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
-    "scss",
     "go",
     "html",
+    "javascript",
+    "javascriptreact",
     "lua",
+    "markdown",
     "python",
     "rust",
+    "scss",
     "typescript",
-    "typescriptreact",
-    "markdown"
+    "typescriptreact"
   ],
   "Lua.diagnostics.globals": ["awesome", "client", "root", "screen", "mouse", "tag"]
 }

@@ -32,7 +32,7 @@ set redrawtime=10000 "allow more time for loading syntax on large files
 
 let mapleader = ","
 nmap <leader>ev :edit ~/.config/nvim/init.vim<cr>
-nmap <leader>ec :edit ~/.config/nvim/coc-setings.json<cr>
+nmap <leader>ec :edit ~/.config/nvim/coc-settings.json<cr>
 nmap <leader>sv :source ~/.config/nvim/init.vim<cr>
 
 nmap <leader>k :nohlsearch<cr>
