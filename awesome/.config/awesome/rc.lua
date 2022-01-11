@@ -382,12 +382,12 @@ GLOBAL_KEYS = gears.table.join(
     -- Prompt
     awful.key(
         {MODKEY, "Control"}, "p",
-        function() awful.util.spawn_with_shell("sleep 0.5 && scrot -b -u") end,
+        function() awful.util.spawn_with_shell("flameshot full --clipboard") end,
         { description = "run prompt", group = "launcher" }
     ),
     awful.key(
         {MODKEY, "Shift"}, "p",
-        function() awful.util.spawn_with_shell("sleep 0.5 && scrot -s") end,
+        function() awful.util.spawn_with_shell("flameshot gui") end,
         { description = "run prompt", group = "launcher" }
     ),
     awful.key(
@@ -642,3 +642,4 @@ awful.spawn.with_shell("nitrogen --restore")
 awful.spawn.with_shell("setxkbmap -layout us -variant altgr-intl")
 awful.spawn.with_shell("enpass")
 awful.spawn.with_shell("nm-applet")
+awful.spawn.with_shell("flameshot")

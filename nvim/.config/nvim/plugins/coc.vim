@@ -17,6 +17,7 @@ let g:coc_global_extensions = [
     \ 'coc-svg',
     \ 'coc-tsserver',
     \ 'coc-pyright',
+    \ 'coc-pairs',
     \ 'coc-lua',
     \ 'coc-rls',
 \ ]
