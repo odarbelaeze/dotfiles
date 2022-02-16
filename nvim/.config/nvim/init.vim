@@ -5,7 +5,6 @@ set shiftwidth=4
 set tabstop=4
 set hidden " let's just try this one
 set signcolumn=yes:2
-set relativenumber
 set number
 set termguicolors
 set undofile

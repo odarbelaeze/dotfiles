@@ -1,8 +1,9 @@
 configuration {
   combi-modi: "window,drun,run";
   modi: "window,drun,run";
-  font: "MesloLGLDZ Nerd Font 12";
+  font: "JetBrains Mono 14";
 }
 
-@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
+//@theme "/usr/share/rofi/themes/gruvbox-dark.rasi"
 
+@theme "/usr/share/rofi/themes/paper-float.rasi"
