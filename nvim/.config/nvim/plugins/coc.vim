@@ -1,8 +1,8 @@
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'antoinemadec/coc-fzf'
 
-let g:python_host_prog  = '~/.venvs/nvim-py2/bin/python'
-let g:python3_host_prog  = '~/.venvs/nvim-py3/bin/python'
+" let g:python_host_prog  = '~/.venvs/nvim-py2/bin/python'
+" let g:python3_host_prog  = '~/.venvs/nvim-py3/bin/python'
 
 let g:coc_global_extensions = [
     \ 'coc-css',
@@ -20,6 +20,7 @@ let g:coc_global_extensions = [
     \ 'coc-pairs',
     \ 'coc-lua',
     \ 'coc-rls',
+    \ 'coc-go',
 \ ]
 
 " Use tab for trigger completion with characters ahead and navigate.

@@ -6,3 +6,5 @@ pyrightconfig.json
 docker-compose.override.yml
 docker-compose.override.yaml
 .vim
+.envrc
+.DS_Store

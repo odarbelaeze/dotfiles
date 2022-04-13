@@ -3,10 +3,12 @@ eval "$(starship init zsh)"
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PYTHONDONTWRITEBYTECODE=1
+export HOMEBREW_NO_INSTALL_CLEANUP=1
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH"
+export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH:$HOME/go/bin"
 export ANTIGEN_LOG="$HOME/.cache/antigen.log"
+export GPG_TTY=$(tty)
 
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
@@ -33,6 +35,8 @@ antigen bundle git
 # Version manager
 antigen bundle rbenv
 antigen bundle pyenv
+antigen bundle golang
+antigen bundle direnv
 antigen bundle lukechilds/zsh-nvm
 antigen bundle cowboyd/zsh-rust@v1
 

@@ -12,3 +12,5 @@ disabled = true
 [git_branch]
 truncation_length = 12
 
+[docker_context]
+format = "${symbol}"

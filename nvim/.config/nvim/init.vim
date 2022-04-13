@@ -63,6 +63,9 @@ cmap w!! %!sudo tee > /dev/null %
 nmap <leader>w :w<cr>
 nmap <leader>x :x<cr>
 
+nmap <F3> i<C-R>=strftime("%Y-%m-%dT%T%z")<CR><ESC>hi:<ESC>2l
+imap <F3> <C-R>=strftime("%Y-%m-%dT%T%z")<CR><ESC>hi:<ESC>2l$a
+
 " Plugins
 
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'

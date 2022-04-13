@@ -1,13 +1,9 @@
 {
   "python.formatting.provider": "black",
-  "python.venvPath": "~/.pyenv/versions/",
-  "python.formatting.blackPath": "/usr/bin/black",
   "coc.preferences.formatOnSaveFiletypes": [
     "css",
     "go",
     "html",
-    "javascript",
-    "javascriptreact",
     "lua",
     "markdown",
     "python",
