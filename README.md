@@ -31,7 +31,7 @@ stow zsh
 ```
 
 For the best experience, make sure you get a nice terminal emulator like
-[iterm2](https://iterm2.com/), or [kitty](https://sw.kovidgoyal.net/kitty/).
+[iterm2](https://iterm2.com/) or [kitty](https://sw.kovidgoyal.net/kitty/).
 Then, grab yourself a [nerd font](https://www.nerdfonts.com/#home) no make the
 glyphs show correctly.
 
