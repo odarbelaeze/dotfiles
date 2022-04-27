@@ -1,5 +1,6 @@
 eval "$(starship init zsh)"
 
+# export VISUAL=vim
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PYTHONDONTWRITEBYTECODE=1
@@ -17,14 +18,15 @@ eval "$(pyenv init --path)"
 [ -f ~/.tokens.sh ] && source ~/.tokens.sh
 
 # Aliases
-alias vim="nvim"
-alias ze="nvim ~/.zshrc"
+alias vim="$EDITOR"
+alias ze="$EDITOR ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias gbsa='git checkout -q main && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base main $branch) && [[ $(git cherry main $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 
 # Antigen plugin manager
 [ -f /usr/share/zsh/share/antigen.zsh ] && source /usr/share/zsh/share/antigen.zsh
 [ -f /usr/local/share/antigen/antigen.zsh ] && source /usr/local/share/antigen/antigen.zsh
+[ -f /opt/homebrew/Cellar/antigen/2.2.3/share/antigen/antigen.zsh ] && source /opt/homebrew/Cellar/antigen/2.2.3/share/antigen/antigen.zsh
 
 # Manage oh-my-zsh
 antigen use oh-my-zsh

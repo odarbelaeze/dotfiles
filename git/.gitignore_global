@@ -8,3 +8,4 @@ docker-compose.override.yaml
 .vim
 .envrc
 .DS_Store
+.env
