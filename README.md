@@ -14,7 +14,8 @@ First make sure you have the required software:
 brew install stow antigen starship pyenv pyenv-virtualenv nvm neovim
 ```
 
-Then edit the `./zsh/.zshrc` file and make sure that this block points to where your `antigen` ended up being installed:
+Then edit the `./zsh/.zshrc` file and make sure that this block points to where
+your `antigen` ended up being installed:
 
 ```bash
 # Antigen plugin manager
@@ -28,6 +29,11 @@ After that you can go ahead and install the module by:
 ```bash
 stow zsh
 ```
+
+For the best experience, make sure you get a nice terminal emulator like
+[iterm2](https://iterm2.com/), or [kitty](https://sw.kovidgoyal.net/kitty/).
+Then, grab yourself a [nerd font](https://www.nerdfonts.com/#home) no make the
+glyphs show correctly.
 
 ### Other modules
 
