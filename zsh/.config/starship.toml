@@ -9,6 +9,9 @@ format = '[${symbol}${pyenv_prefix}(${version} )(\($virtualenv\))]($style)'
 [cmd_duration]
 disabled = true
 
+[package]
+disabled = true
+
 [git_branch]
 truncation_length = 12
 

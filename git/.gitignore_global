@@ -9,3 +9,4 @@ docker-compose.override.yaml
 .envrc
 .DS_Store
 .env
+.vscode

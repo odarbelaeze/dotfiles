@@ -22,6 +22,7 @@ alias vim="$EDITOR"
 alias ze="$EDITOR ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias gbsa='git checkout -q main && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base main $branch) && [[ $(git cherry main $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
+# alias ls='lsd'
 
 # Antigen plugin manager
 [ -f /usr/share/zsh/share/antigen.zsh ] && source /usr/share/zsh/share/antigen.zsh
