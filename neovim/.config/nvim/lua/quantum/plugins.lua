@@ -36,6 +36,15 @@ return require('packer').startup({
             },
         })
 
+        -- Telescope
+        use({
+            'nvim-telescope/telescope.nvim',
+            tag = '0.1.0',
+            config = function()
+                require('quantum.plugins.telescope')
+            end,
+        })
+
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if packer_bootstrap then
