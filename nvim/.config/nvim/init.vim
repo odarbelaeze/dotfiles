@@ -48,6 +48,8 @@ vnoremap Y myy`Y
 nnoremap Y y$
 nnoremap <leader>p "+p
 nnoremap <leader>y "+y
+vnoremap <leader>p "+p
+nnoremap <leader>y "+y
 
 nnoremap n nzzzv
 nnoremap N Nzzzv
