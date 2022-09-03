@@ -91,6 +91,7 @@ return require('packer').startup({
         use {
             'nvim-treesitter/nvim-treesitter',
             config = [[require('quantum.config.treesitter')]],
+            run = ':TSUpdate'
         }
 
         -- More text objects
