@@ -18,6 +18,29 @@ return require('packer').startup({
         -- Essentials
         use('wbthomason/packer.nvim')
         use('nvim-lua/plenary.nvim')
+        use('nvim-lua/popup.nvim')
+
+        -- Colors
+        use {
+            'folke/tokyonight.nvim',
+            config = function ()
+                vim.cmd[[colorscheme tokyonight]]
+            end
+        }
+        use {
+            'nvim-lualine/lualine.nvim',
+            requires = { 'kyazdani42/nvim-web-devicons', opt = true },
+            config = function ()
+                require('lualine').setup {
+                    options = {
+                        component_separators = { left = '', right = ''},
+                        section_separators = { left = '', right = ''},
+                        theme = 'tokyonight'
+                    }
+                }
+            end
+        }
+
 
         -- Goodies
         use('ap/vim-css-color')
@@ -37,13 +60,39 @@ return require('packer').startup({
         })
 
         -- Telescope
-        use({
+        use {
             'nvim-telescope/telescope.nvim',
-            tag = '0.1.0',
-            config = function()
-                require('quantum.plugins.telescope')
-            end,
-        })
+            requires = {
+                'nvim-lua/popup.nvim',
+                'nvim-lua/plenary.nvim',
+            },
+            wants = {
+                'popup.nvim',
+                'plenary.nvim',
+            },
+            setup = [[require('quantum.setup.telescope')]],
+            config = [[require('quantum.config.telescope')]],
+            cmd = 'Telescope',
+            module = 'telescope',
+        }
+
+        -- File tree
+        use {
+            'kyazdani42/nvim-tree.lua',
+            requires = {
+                'kyazdani42/nvim-web-devicons', -- optional, for file icons
+            },
+            config = [[require('quantum.config.nvimtree')]],
+            setup = [[require('quantum.setup.nvimtree')]],
+            tag = 'nightly' -- optional, updated every week. (see issue #1193)
+        }
+
+        -- The code
+        use {
+            'nvim-treesitter/nvim-treesitter',
+            config = [[require('quantum.config.treesitter')]],
+            run = ':TSUpdate',
+        }
 
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
@@ -51,11 +100,4 @@ return require('packer').startup({
             require('packer').sync()
         end
     end,
-    config = {
-        display = {
-            open_fn = function()
-                return require('packer.util').float({ border = 'single' })
-            end,
-        },
-    },
 })

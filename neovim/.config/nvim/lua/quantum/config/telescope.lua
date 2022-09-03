@@ -1,5 +1,3 @@
-local finders = require('telescope.builtin')
-
 require('telescope').setup({
     defaults = {
         prompt_prefix = ' 🔍 ',
@@ -7,14 +5,9 @@ require('telescope').setup({
         sorting_strategy = 'ascending',
         layout_config = {
             prompt_position = 'top',
+            anchor = 'N',
         },
+        layout_strategy = 'flex',
+        theme = 'dropdown',
     },
 })
-
--- ,f = fuzzy finder
-vim.keymap.set('n', '<leader>f', function()
-    finders.find_files({
-        find_command = { 'rg', '--ignore', '--hidden', '--files' }
-    })
-end)
-
