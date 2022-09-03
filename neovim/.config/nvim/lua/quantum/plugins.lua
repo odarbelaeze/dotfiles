@@ -157,16 +157,135 @@ return require('packer').startup({
             },
         }
 
+        -- The complete engine
+        use {
+            'L3MON4D3/LuaSnip',
+            'hrsh7th/cmp-buffer',
+            'hrsh7th/cmp-path',
+            'hrsh7th/cmp-cmdline',
+            {
+                'saadparwaiz1/cmp_luasnip',
+                after = {
+                    'LuaSnip',
+                }
+            },
+            {
+                'hrsh7th/nvim-cmp',
+                after = {
+                    'cmp-buffer',
+                    'cmp-path',
+                    'cmp-cmdline',
+                    'cmp_luasnip',
+                },
+                config = function ()
+                    local cmp = require('cmp')
+                    cmp.setup({
+                        snippet = {
+                            -- REQUIRED - you must specify a snippet engine
+                            expand = function(args)
+                                require('luasnip').lsp_expand(args.body)
+                            end,
+                        },
+                        mapping = cmp.mapping.preset.insert({
+                            ['<C-b>'] = cmp.mapping.scroll_docs(-4),
+                            ['<C-f>'] = cmp.mapping.scroll_docs(4),
+                            ['<C-Space>'] = cmp.mapping.complete(),
+                            ['<C-e>'] = cmp.mapping.abort(),
+                            ['<CR>'] = cmp.mapping.confirm({ select = true }), -- Accept currently selected item. Set `select` to `false` to only confirm explicitly selected items.
+                        }),
+                        sources = cmp.config.sources({
+                            { name = 'nvim_lsp' },
+                            -- { name = 'vsnip' }, -- For vsnip users.
+                            { name = 'luasnip' }, -- For luasnip users.
+                            -- { name = 'ultisnips' }, -- For ultisnips users.
+                            -- { name = 'snippy' }, -- For snippy users.
+                        }, {
+                            { name = 'buffer' },
+                        }),
+                        formatting = {
+                            format = function(entry, vim_item)
+                                -- Turn kinds of things
+                                local icons = {
+                                    Text = "",
+                                    Method = "",
+                                    Function = "",
+                                    Constructor = "",
+                                    Field = "",
+                                    Variable = "",
+                                    Class = "ﴯ",
+                                    Interface = "",
+                                    Module = "",
+                                    Property = "ﰠ",
+                                    Unit = "",
+                                    Value = "",
+                                    Enum = "",
+                                    Keyword = "",
+                                    Snippet = "",
+                                    Color = "",
+                                    File = "",
+                                    Reference = "",
+                                    Folder = "",
+                                    EnumMember = "",
+                                    Constant = "",
+                                    Struct = "",
+                                    Event = "",
+                                    Operator = "",
+                                    TypeParameter = ""
+                                }
+                                -- You could format here however you would like
+                                vim_item.kind = string.format('%s', icons[vim_item.kind])
+                                vim_item.menu = ({
+                                    buffer = "[Buffer]",
+                                    nvim_lsp = "[LSP]",
+                                    luasnip = "[LuaSnip]",
+                                    nvim_lua = "[Lua]",
+                                    latex_symbols = "[LaTeX]",
+                                })[entry.source.name]
+                                return vim_item
+                            end
+                        }
+                    })
+
+                    cmp.setup.filetype('gitcommit', {
+                        sources = cmp.config.sources({
+                            { name = 'cmp_git' },
+                        }, {
+                            { name = 'buffer' },
+                        })
+                    })
+
+                    cmp.setup.cmdline('/', {
+                        mapping = cmp.mapping.preset.cmdline(),
+                        sources = {
+                            { name = 'buffer' }
+                        }
+                    })
+
+                    -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
+                    cmp.setup.cmdline(':', {
+                        mapping = cmp.mapping.preset.cmdline(),
+                        sources = cmp.config.sources({
+                            { name = 'path' }
+                        }, {
+                            { name = 'cmdline' }
+                        })
+                    })
+                end,
+            },
+            {
+                'hrsh7th/cmp-nvim-lsp',
+                after = { 'nvim-cmp' },
+            }
+        }
+
         -- The lsp stuffs
         use {
             'williamboman/mason.nvim',
             'williamboman/mason-lspconfig.nvim',
             {
                 'neovim/nvim-lspconfig',
-                after = { 'mason.nvim', 'mason-lspconfig.nvim' },
+                after = { 'mason.nvim', 'mason-lspconfig.nvim', 'cmp-nvim-lsp' },
                 config = function ()
-                    print('lsps loading')
-
                     -- Get the autoinstaller going
                     require('mason').setup({})
 
@@ -216,9 +335,12 @@ return require('packer').startup({
                         debounce_text_changes = 150,
                     }
 
+                    local capabilities = require('cmp_nvim_lsp').update_capabilities(vim.lsp.protocol.make_client_capabilities())
+
                     require('lspconfig')['sumneko_lua'].setup({
                         on_attach = on_attach,
                         flags = lsp_flags,
+                        capabilities = capabilities,
                         settings = {
                             Lua = {
                                 diagnostics = {
@@ -230,18 +352,22 @@ return require('packer').startup({
                     require('lspconfig')['pyright'].setup({
                         on_attach = on_attach,
                         flags = lsp_flags,
+                        capabilities = capabilities,
                     })
                     require('lspconfig')['tsserver'].setup({
                         on_attach = on_attach,
                         flags = lsp_flags,
+                        capabilities = capabilities,
                     })
                     require('lspconfig')['rust_analyzer'].setup({
                         on_attach = on_attach,
                         flags = lsp_flags,
+                        capabilities = capabilities,
                     })
                     require('lspconfig')['astro'].setup({
                         on_attach = on_attach,
                         flags = lsp_flags,
+                        capabilities = capabilities,
                     })
 
                     -- this is for diagnositcs signs on the line number column
