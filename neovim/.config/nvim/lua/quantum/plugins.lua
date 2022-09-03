@@ -127,6 +127,7 @@ return require('packer').startup({
                 'neovim/nvim-lspconfig',
                 config = function ()
                     print('lsps loaded')
+                    require('mason').setup({})
                     require('mason-lspconfig').setup({
                         ensure_installed = {
                             'sumneko_lua',
