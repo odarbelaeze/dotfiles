@@ -43,4 +43,5 @@ o.splitbelow = true
 -- Map <leader> to space
 g.mapleader = ','
 g.maplocalleader = ','
+g.mouse = 'a'
 
