@@ -163,6 +163,7 @@ return require('packer').startup({
             'hrsh7th/cmp-buffer',
             'hrsh7th/cmp-path',
             'hrsh7th/cmp-cmdline',
+            'onsails/lspkind.nvim',
             {
                 'saadparwaiz1/cmp_luasnip',
                 after = {
@@ -176,6 +177,7 @@ return require('packer').startup({
                     'cmp-path',
                     'cmp-cmdline',
                     'cmp_luasnip',
+                    'lspkind.nvim',
                 },
                 config = function ()
                     local cmp = require('cmp')
@@ -203,46 +205,10 @@ return require('packer').startup({
                             { name = 'buffer' },
                         }),
                         formatting = {
-                            format = function(entry, vim_item)
-                                -- Turn kinds of things
-                                local icons = {
-                                    Text = "",
-                                    Method = "",
-                                    Function = "",
-                                    Constructor = "",
-                                    Field = "",
-                                    Variable = "",
-                                    Class = "ﴯ",
-                                    Interface = "",
-                                    Module = "",
-                                    Property = "ﰠ",
-                                    Unit = "",
-                                    Value = "",
-                                    Enum = "",
-                                    Keyword = "",
-                                    Snippet = "",
-                                    Color = "",
-                                    File = "",
-                                    Reference = "",
-                                    Folder = "",
-                                    EnumMember = "",
-                                    Constant = "",
-                                    Struct = "",
-                                    Event = "",
-                                    Operator = "",
-                                    TypeParameter = ""
-                                }
-                                -- You could format here however you would like
-                                vim_item.kind = string.format('%s', icons[vim_item.kind])
-                                vim_item.menu = ({
-                                    buffer = "[Buffer]",
-                                    nvim_lsp = "[LSP]",
-                                    luasnip = "[LuaSnip]",
-                                    nvim_lua = "[Lua]",
-                                    latex_symbols = "[LaTeX]",
-                                })[entry.source.name]
-                                return vim_item
-                            end
+                            format = require('lspkind').cmp_format({
+                                mode = 'symbol',
+                                maxwidth = 50,
+                            }),
                         }
                     })
 
