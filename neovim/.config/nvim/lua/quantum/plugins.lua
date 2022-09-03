@@ -119,6 +119,26 @@ return require('packer').startup({
             }
         }
 
+        -- The lsp stuffs
+        use {
+            'williamboman/mason.nvim',
+            'williamboman/mason-lspconfig.nvim',
+            {
+                'neovim/nvim-lspconfig',
+                config = function ()
+                    print('lsps loaded')
+                    require('mason-lspconfig').setup({
+                        ensure_installed = {
+                            'sumneko_lua',
+                            'rust_analyzer',
+                            'pyright',
+                            'tsserver'
+                        }
+                    })
+                end
+            }
+        }
+
         -- Automatically set up your configuration after cloning packer.nvim
         -- Put this at the end after all plugins
         if packer_bootstrap then
