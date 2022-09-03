@@ -30,12 +30,6 @@ After that you can go ahead and install the module by:
 stow zsh
 ```
 
-```css
-h1 {
-    color: green;
-}
-```
-
 For the best experience, make sure you get a nice terminal emulator like
 [iterm2](https://iterm2.com/) or [kitty](https://sw.kovidgoyal.net/kitty/).
 Then, grab yourself a [nerd font](https://www.nerdfonts.com/#home) no make the

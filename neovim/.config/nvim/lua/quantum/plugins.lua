@@ -84,14 +84,39 @@ return require('packer').startup({
             },
             config = [[require('quantum.config.nvimtree')]],
             setup = [[require('quantum.setup.nvimtree')]],
-            tag = 'nightly' -- optional, updated every week. (see issue #1193)
+            -- tag = 'nightly' -- optional, updated every week. (see issue #1193)
         }
 
         -- The code
         use {
             'nvim-treesitter/nvim-treesitter',
             config = [[require('quantum.config.treesitter')]],
-            run = ':TSUpdate',
+        }
+
+        -- More text objects
+        -- use {
+        --     ''
+        -- }
+        use {
+            'kana/vim-textobj-user',
+            {
+                'kana/vim-textobj-indent',
+                requires = {
+                    'kana/vim-textobj-user',
+                },
+                wants = {
+                    'vim-textobj-user',
+                },
+            },
+            {
+                'kana/vim-textobj-line',
+                requires = {
+                    'kana/vim-textobj-user',
+                },
+                wants = {
+                    'vim-textobj-user',
+                },
+            }
         }
 
         -- Automatically set up your configuration after cloning packer.nvim
