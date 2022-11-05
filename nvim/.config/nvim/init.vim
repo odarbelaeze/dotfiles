@@ -90,6 +90,7 @@ source ~/.config/nvim/plugins/polyglot.vim
 source ~/.config/nvim/plugins/vim-test.vim
 source ~/.config/nvim/plugins/floaterm.vim
 source ~/.config/nvim/plugins/dracula.vim
+source ~/.config/nvim/plugins/astro.vim
 
 call plug#end()
 
