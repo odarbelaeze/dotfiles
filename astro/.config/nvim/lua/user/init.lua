@@ -71,6 +71,12 @@ local config = {
                         ["tpope/vim-rhubarb"] = {
                                 event = "BufRead",
                         },
+                        ["tpope/vim-repeat"] = {
+                                event = "BufRead",
+                        },
+                        ["bronson/vim-trailing-whitespace"] = {
+                                event = "BufRead",
+                        },
                         ["vim-test/vim-test"] = {
                                 event = "BufRead",
                                 config = function()
