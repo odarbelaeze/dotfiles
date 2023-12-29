@@ -1,1 +1,3 @@
 __pycache__
+tmux/.config/tmux/plugins/
+*.bak

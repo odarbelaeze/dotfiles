@@ -10,3 +10,6 @@ docker-compose.override.yaml
 .DS_Store
 .env
 .vscode
+.idea/
+.npmrc
+pnpm-lock.yaml

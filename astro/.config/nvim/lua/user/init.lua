@@ -12,6 +12,7 @@ local config = {
                         relativenumber = false, -- sets vim.opt.relativenumber
                         number = true, -- sets vim.opt.number
                         signcolumn = "yes", -- sets vim.opt.signcolumn to auto
+                        showtabline = 0,
                 },
                 g = {
                         mapleader = ",", -- sets vim.g.mapleader
@@ -55,40 +56,26 @@ local config = {
 
         -- Configure plugins
         plugins = {
-                init = {
-                        ["akinsho/toggleterm.nvim"] = {
-                                disable = true,
-                        },
-                        ["Shatur/neovim-session-manager"] = {
-                                disable = true,
-                        },
-                        ["tpope/vim-surround"] = {
-                                event = "BufRead",
-                        },
-                        ["tpope/vim-fugitive"] = {
-                                event = "BufRead",
-                        },
-                        ["tpope/vim-rhubarb"] = {
-                                event = "BufRead",
-                        },
-                        ["tpope/vim-repeat"] = {
-                                event = "BufRead",
-                        },
-                        ["vim-test/vim-test"] = {
-                                event = "BufRead",
-                                config = function()
-                                        vim.g["test#python#pytest#options"] = "--disable-warnings --pdb"
-                                end,
-                        },
+                {"akinsho/toggleterm.nvim", enabled = false},
+                {"Shatur/neovim-session-manager", enabled = false},
+                {"tpope/vim-surround", event = "BufRead"},
+                {"tpope/vim-fugitive", event = "BufRead"},
+                {"tpope/vim-rhubarb", event = "BufRead"},
+                {"tpope/vim-repeat", event = "BufRead"},
+                {"christoomey/vim-sort-motion", event = "BufRead"},
+                {
+                        "vim-test/vim-test",
+                        event = "BufRead",
+                        config = function() 
+                                vim.g["test#python#pytest#options"] = "--disable-warnings --pdb"
+                        end,
+                        
                 },
-                ["aerial"] = function(config)
-                        config["on_atach"] = nil
-                        return config
-                end,
-                ["neo-tree"] = function(config)
-                        config["window"]["position"] = "right"
-                        return config
-                end,
+                "AstroNvim/astrocommunity",
+                {
+                        import = "astrocommunity.completion.copilot-lua-cmp",
+                }
+
         },
 
         -- CMP Source Priorities
