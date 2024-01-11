@@ -19,13 +19,11 @@ local config = {
                 },
         },
 
-        -- Set dashboard header
-        header = {
-                " █████  ███████ ████████ ██████   ██████",
-                "██   ██ ██         ██    ██   ██ ██    ██",
-                "███████ ███████    ██    ██████  ██    ██",
-                "██   ██      ██    ██    ██   ██ ██    ██",
-                "██   ██ ███████    ██    ██   ██  ██████",
+        -- Increase lsp timeout
+        lsp = {
+                formatting = {
+                        timeout_ms = 5000,
+                }
         },
 
         -- Diagnostics configuration (for vim.diagnostics.config({...})) when diagnostics are on
