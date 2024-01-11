@@ -1,0 +1,13 @@
+let mapleader = ","
+
+set surround
+set commentary
+
+inoremap jj <ESC>
+inoremap kk <ESC>
+
+nnoremap <leader>w :w<CR>
+
+nnoremap <leader>ff :action GotoFile<CR>
+nnoremap <leader>tl :action Run<CR>
+nnoremap <leader>lr :action RenameElement<CR>
