@@ -1,4 +1,5 @@
 configuration {
+  modes: "combi,window,drun,run";
   combi-modi: "window,drun,run";
   modi: "window,drun,run";
   font: "JetBrains Mono 14";

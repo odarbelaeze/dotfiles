@@ -48,3 +48,7 @@ family = "JetBrainsMono Nerd Font Mono"
 
 [font.normal]
 family = "JetBrainsMono Nerd Font Mono"
+
+[window.dimensions]
+columns = 240
+lines = 55

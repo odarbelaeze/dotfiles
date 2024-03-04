@@ -13,3 +13,6 @@ docker-compose.override.yaml
 .idea/
 .npmrc
 pnpm-lock.yaml
+.classpath
+.project
+.settings/

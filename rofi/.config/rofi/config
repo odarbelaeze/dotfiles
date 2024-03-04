@@ -1,3 +1,4 @@
+rofi.modes: combi,window,drun,run
 rofi.combi-modi: window,drun,run
 rofi.font: JetBrains Mono 12
 rofi.theme: /usr/share/rofi/themes/gruvbox-dark.rasi
