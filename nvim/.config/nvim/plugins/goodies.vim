@@ -1,7 +1,0 @@
-Plug 'ap/vim-css-color'
-Plug 'christoomey/vim-sort-motion'
-Plug 'psliwka/vim-smoothie'
-Plug 'tommcdo/vim-exchange'
-Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-surround'
