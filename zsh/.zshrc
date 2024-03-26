@@ -16,6 +16,7 @@ export PATH="$PYENV_ROOT/bin:$PATH"
 eval "$(pyenv init --path)"
 
 [ -f ~/.tokens.sh ] && source ~/.tokens.sh
+[ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
 
 # Aliases
 alias vim="$EDITOR"
