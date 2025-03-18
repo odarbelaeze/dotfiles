@@ -7,13 +7,9 @@ export PYTHONDONTWRITEBYTECODE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH:$HOME/go/bin"
+export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH:$HOME/go/bin:$HOME/.local/bin/"
 export ANTIGEN_LOG="$HOME/.cache/antigen.log"
 export GPG_TTY=$(tty)
-
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init --path)"
 
 [ -f ~/.tokens.sh ] && source ~/.tokens.sh
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
@@ -26,9 +22,14 @@ alias gbsa='git checkout -q main && git for-each-ref refs/heads/ "--format=%(ref
 # alias ls='lsd'
 
 # Antigen plugin manager
+[ -f ~/.bin/antigen.zsh ] && source ~/.bin/antigen.zsh
 [ -f /usr/share/zsh/share/antigen.zsh ] && source /usr/share/zsh/share/antigen.zsh
 [ -f /usr/local/share/antigen/antigen.zsh ] && source /usr/local/share/antigen/antigen.zsh
 [ -f /opt/homebrew/Cellar/antigen/2.2.3/share/antigen/antigen.zsh ] && source /opt/homebrew/Cellar/antigen/2.2.3/share/antigen/antigen.zsh
+
+# Google cloud cli
+[ -f /opt/google-cloud-cli/path.zsh.inc ] && source /opt/google-cloud-cli/path.zsh.inc
+[ -f /opt/google-cloud-cli/completion.zsh.inc ] && source /opt/google-cloud-cli/completion.zsh.inc
 
 # Manage oh-my-zsh
 antigen use oh-my-zsh
@@ -38,7 +39,6 @@ antigen bundle git
 
 # Version manager
 antigen bundle rbenv
-antigen bundle pyenv
 antigen bundle golang
 antigen bundle direnv
 antigen bundle lukechilds/zsh-nvm
