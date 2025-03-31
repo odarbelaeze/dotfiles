@@ -159,6 +159,9 @@ vim.opt.scrolloff = 10
 -- No wrap
 vim.opt.wrap = false
 
+-- Regular tab stop
+vim.opt.tabstop = 4
+
 -- [[ Basic Keymaps ]]
 --  See `:help vim.keymap.set()`
 
@@ -716,7 +719,7 @@ require('lazy').setup({
 
   { -- Autoformat
     'stevearc/conform.nvim',
-    enabled = true,
+    enabled = false,
     event = { 'BufWritePre' },
     cmd = { 'ConformInfo' },
     keys = {
