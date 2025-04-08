@@ -72,8 +72,6 @@ MODKEY = "Mod1"
 -- Table of layouts to cover with awful.layout.inc, order matters.
 awful.layout.layouts = {
     awful.layout.suit.tile.right,
-    awful.layout.suit.tile.left,
-    awful.layout.suit.fair,
     awful.layout.suit.max,
     awful.layout.suit.floating,
 }
@@ -194,8 +192,8 @@ awful.screen.connect_for_each_screen(function(s)
         selected = true,
     })
 
+    awful.tag.add("browser", { layout = awful.layout.layouts[1], screen = s })
     awful.tag.add("chat", { layout = awful.layout.layouts[1], screen = s })
-    awful.tag.add("misc", { layout = awful.layout.suit.floating, screen = s })
     awful.tag.add("network", { layout = awful.layout.suit.floating, screen = s })
     awful.tag.add("jack", { layout = awful.layout.suit.floating, screen = s })
 
