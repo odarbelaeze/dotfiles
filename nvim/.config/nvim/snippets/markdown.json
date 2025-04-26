@@ -1,0 +1,15 @@
+{
+  "zk": {
+    "prefix": "zk",
+    "body": [
+      "# ${TM_FILENAME_BASE}",
+      "",
+      "${0:Note Content}",
+      "",
+      "## Up",
+      "",
+      "## Down",
+      ""
+    ]
+  }
+}
