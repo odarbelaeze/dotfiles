@@ -7,7 +7,7 @@ export PYTHONDONTWRITEBYTECODE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH:$HOME/go/bin:$HOME/.local/bin/"
+export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH:$HOME/go/bin:$HOME/.local/bin/:$HOME/.config/composer/vendor/bin/"
 export ANTIGEN_LOG="$HOME/.cache/antigen.log"
 export GPG_TTY=$(tty)
 
