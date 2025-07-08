@@ -1,0 +1,49 @@
+// Zed keymap
+//
+// For information on binding keys, see the Zed
+// documentation: https://zed.dev/docs/key-bindings
+//
+// To see the default key bindings run `zed: open default keymap`
+// from the command palette.
+[
+  {
+    "bindings": {
+      "ctrl-y": "editor::ConfirmCompletion"
+    }
+  },
+  {
+    "context": "VimControl && !menu",
+    "bindings": {
+      // Put key bindings here if you want them to work in normal & visual mode.
+      ", s f": "file_finder::Toggle",
+      // Open file tree
+      ", n t": "project_panel::ToggleFocus",
+      ", l r": "editor::Rename"
+    }
+  },
+  {
+    "context": "vim_mode == normal && !menu",
+    "bindings": {
+      "shift-y": ["workspace::SendKeystrokes", "y $"],
+      ", w": "workspace::Save",
+      ", x": ["pane::CloseActiveItem", { "save_intent": "save" }],
+      ", q": "pane::CloseActiveItem"
+    }
+  },
+  {
+    "context": "vim_mode == insert",
+    "bindings": {
+      "j j": "vim::NormalBefore",
+      "k k": "vim::NormalBefore"
+    }
+  },
+  {
+    "context": "EmptyPane || SharedScreen",
+    "bindings": {
+      // Put key bindings here (in addition to the context above) if you want them to
+      // work when no editor exists.
+      ", s f": "file_finder::Toggle",
+      ", n t": "project_panel::ToggleFocus"
+    }
+  }
+]
