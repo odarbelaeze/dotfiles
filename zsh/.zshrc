@@ -7,9 +7,16 @@ export PYTHONDONTWRITEBYTECODE=1
 export HOMEBREW_NO_INSTALL_CLEANUP=1
 export RIPGREP_CONFIG_PATH="$HOME/.ripgreprc"
 export ZSH="$HOME/.oh-my-zsh"
-export PATH="$HOME/.bin:$HOME/.yarn/bin:$PATH:$HOME/go/bin:$HOME/.local/bin/:$HOME/.config/composer/vendor/bin/"
+export PATH="$HOME/.bin:$PATH"
+export PATH="$HOME/go:$PATH"
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/.config/composer/vendor/bin:$PATH"
+export PATH="$HOME/.local/share/uv/tools/ansible/bin:$PATH"
+export PATH="$HOME/Packages/flutter/bin:$PATH"
+export PATH="$HOME/.pub-cache/bin:$PATH"
 export ANTIGEN_LOG="$HOME/.cache/antigen.log"
 export GPG_TTY=$(tty)
+export ANDROID_HOME="$HOME/Packages/android/sdk/"
 
 [ -f ~/.tokens.sh ] && source ~/.tokens.sh
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
