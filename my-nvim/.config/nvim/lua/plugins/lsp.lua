@@ -45,6 +45,12 @@ return {
         --  To jump back, press <C-t>.
         map('gd', '<cmd>FzfLua lsp_definitions<cr>', '[G]oto [D]efinition')
 
+        map('gD', vim.lsp.buf.declaration, '[G]oto [D]eclaration')
+
+        -- Navigate document and workspace symbols.
+        map('gs', '<cmd>FzfLua lsp_document_symbols<cr>', '[G]oto [S]ymbol in Document')
+        map('gS', '<cmd>FzfLua lsp_live_workspace_symbols<cr>', '[G]oto [S]ymbol in Workspace')
+
         -- This function resolves a difference between neovim nightly (version 0.11) and stable (version 0.10)
         ---@param client vim.lsp.Client
         ---@param method vim.lsp.protocol.Method
