@@ -15,8 +15,8 @@
     "context": "VimControl && !menu",
     "bindings": {
       // Put key bindings here if you want them to work in normal & visual mode.
+      ", o": ["projects::OpenRecent", { "create_new_window": false }],
       ", s f": "file_finder::Toggle",
-      // Open file tree
       ", n t": "project_panel::ToggleFocus",
       ", l r": "editor::Rename"
     }
@@ -42,6 +42,7 @@
     "bindings": {
       // Put key bindings here (in addition to the context above) if you want them to
       // work when no editor exists.
+      ", o": ["projects::OpenRecent", { "create_new_window": false }],
       ", s f": "file_finder::Toggle",
       ", n t": "project_panel::ToggleFocus"
     }

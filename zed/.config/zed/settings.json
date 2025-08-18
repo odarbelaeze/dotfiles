@@ -7,6 +7,27 @@
 // custom settings, run `zed: open default settings` from the
 // command palette (cmd-shift-p / ctrl-shift-p)
 {
+  "language_models": {
+    "zed.dev": {
+      "available_models": []
+    }
+  },
+  "agent": {
+    "play_sound_when_agent_done": true,
+    "default_model": {
+      "provider": "copilot_chat",
+      "model": "gpt-4.1"
+    }
+  },
+  "languages": {
+    "Go": {
+      "show_edit_predictions": true
+    }
+  },
+  "show_edit_predictions": false,
+  "edit_predictions": {
+    "disabled_globs": [".tokens.sh", "**/*.log", ".zshrc"]
+  },
   "project_panel": {
     "dock": "right"
   },
@@ -20,11 +41,15 @@
     "dock": "right"
   },
   "features": {
-    "edit_prediction_provider": "zed"
+    "edit_prediction_provider": "copilot"
   },
   "vim_mode": true,
-  "ui_font_size": 20,
-  "buffer_font_size": 20,
+  "ui_font_size": 16,
+  "buffer_font_size": 16,
+  "buffer_font_features": {
+    "calt": false,
+    "liga": false
+  },
   "theme": {
     "mode": "system",
     "light": "One Light",

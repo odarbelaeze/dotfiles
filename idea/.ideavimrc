@@ -7,7 +7,7 @@ inoremap jj <ESC>
 inoremap kk <ESC>
 
 nnoremap <leader>w :w<CR>
+nnoremap <leader>x :x<CR>
+nnoremap <leader>q :q<CR>
 
-nnoremap <leader>ff :action GotoFile<CR>
-nnoremap <leader>tl :action Run<CR>
-nnoremap <leader>lr :action RenameElement<CR>
+nnoremap <leader>sf :action GotoFile<CR>

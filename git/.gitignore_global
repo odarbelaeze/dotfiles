@@ -18,3 +18,5 @@ pnpm-lock.yaml
 .settings/
 .zed/
 .obsidian/
+__debug*
+codebook.toml
