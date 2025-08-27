@@ -3,4 +3,5 @@
 return {
   'tommcdo/vim-exchange',
   'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'tpope/vim-surround',
 }

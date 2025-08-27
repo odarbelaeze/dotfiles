@@ -14,6 +14,9 @@ return {
 
     -- Allows extra capabilities provided by blink.cmp
     'saghen/blink.cmp',
+
+    -- Allows using the LSP as a source for code actions, code lenses, etc.
+    'ibhagwan/fzf-lua',
   },
   config = function()
     vim.api.nvim_create_autocmd('LspAttach', {
@@ -35,7 +38,8 @@ return {
 
         -- Execute a code action, usually your cursor needs to be on top of an error
         -- or a suggestion from your LSP for this to activate.
-        map('g.', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+        -- map('g.', vim.lsp.buf.code_action, '[G]oto Code [A]ction', { 'n', 'x' })
+        map('g.', '<cmd>FzfLua lsp_code_actions silent=true<cr>', '[G]oto Code [A]ction', { 'n', 'x' })
 
         -- Find references for the word under your cursor.
         map('gr', '<cmd>FzfLua lsp_references<cr>', '[G]oto [R]eferences')
