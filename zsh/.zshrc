@@ -1,6 +1,5 @@
 eval "$(starship init zsh)"
 
-# export VISUAL=vim
 export VISUAL=nvim
 export EDITOR="$VISUAL"
 export PYTHONDONTWRITEBYTECODE=1
@@ -10,13 +9,9 @@ export ZSH="$HOME/.oh-my-zsh"
 export PATH="$HOME/.bin:$PATH"
 export PATH="$HOME/go/bin/:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
-export PATH="$HOME/.config/composer/vendor/bin:$PATH"
-export PATH="$HOME/.local/share/uv/tools/ansible/bin:$PATH"
-export PATH="$HOME/Packages/flutter/bin:$PATH"
 export PATH="$HOME/.pub-cache/bin:$PATH"
 export ANTIGEN_LOG="$HOME/.cache/antigen.log"
 export GPG_TTY=$(tty)
-export ANDROID_HOME="$HOME/Packages/android/sdk/"
 
 [ -f ~/.tokens.sh ] && source ~/.tokens.sh
 [ -f "$HOME/.cargo/env" ] && source "$HOME/.cargo/env"
@@ -26,17 +21,13 @@ alias vim="$EDITOR"
 alias ze="$EDITOR ~/.zshrc"
 alias zs="source ~/.zshrc"
 alias gbsa='git checkout -q main && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base main $branch) && [[ $(git cherry main $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
-# alias ls='lsd'
+alias gbma='git checkout -q master && git for-each-ref refs/heads/ "--format=%(refname:short)" | while read branch; do mergeBase=$(git merge-base master $branch) && [[ $(git cherry master $(git commit-tree $(git rev-parse $branch^{tree}) -p $mergeBase -m _)) == "-"* ]] && git branch -D $branch; done'
 
 # Antigen plugin manager
 [ -f ~/.bin/antigen.zsh ] && source ~/.bin/antigen.zsh
 [ -f /usr/share/zsh/share/antigen.zsh ] && source /usr/share/zsh/share/antigen.zsh
 [ -f /usr/local/share/antigen/antigen.zsh ] && source /usr/local/share/antigen/antigen.zsh
 [ -f /opt/homebrew/Cellar/antigen/2.2.3/share/antigen/antigen.zsh ] && source /opt/homebrew/Cellar/antigen/2.2.3/share/antigen/antigen.zsh
-
-# Google cloud cli
-[ -f /opt/google-cloud-cli/path.zsh.inc ] && source /opt/google-cloud-cli/path.zsh.inc
-[ -f /opt/google-cloud-cli/completion.zsh.inc ] && source /opt/google-cloud-cli/completion.zsh.inc
 
 # Manage oh-my-zsh
 antigen use oh-my-zsh
@@ -45,7 +36,6 @@ antigen use oh-my-zsh
 antigen bundle git
 
 # Version manager
-antigen bundle rbenv
 antigen bundle golang
 antigen bundle direnv
 antigen bundle lukechilds/zsh-nvm
