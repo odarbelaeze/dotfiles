@@ -1,3 +1,0 @@
-return {
-  'tommcdo/vim-exchange',
-}
