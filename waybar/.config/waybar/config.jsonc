@@ -44,7 +44,7 @@
   "cpu": {
     "interval": 5,
     "format": "󰍛",
-    "on-click": "ghostty -e btop"
+    "on-click": "alacritty --class=Btop -e btop"
   },
   "clock": {
     "format": "{:%a, %b %d %H:%M}",
@@ -62,7 +62,7 @@
     "tooltip-format-disconnected": "Disconnected",
     "interval": 3,
     "nospacing": 1,
-    "on-click": "ghostty --class=Impala -e impala"
+    "on-click": "alacritty --class=Impala -e impala"
   },
   "bluetooth": {
     "format": "",
@@ -73,7 +73,7 @@
   },
   "pulseaudio": {
     "format": "{icon}",
-    "on-click": "ghostty --class=Wiremix -e wiremix",
+    "on-click": "alacritty --class=Wiremix -e wiremix",
     "on-click-right": "pamixer -t",
     "tooltip-format": "Playing at {volume}%",
     "scroll-step": 5,
