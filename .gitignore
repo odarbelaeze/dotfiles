@@ -2,3 +2,4 @@ __pycache__
 tmux/.config/tmux/plugins/
 *.bak
 prompts/
+lazy-lock.json
