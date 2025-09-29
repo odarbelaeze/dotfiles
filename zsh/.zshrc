@@ -52,3 +52,5 @@ antigen bundle zsh-users/zsh-completions
 antigen bundle zsh-users/zsh-autosuggestions
 
 antigen apply
+
+[ -f ~/.work.sh ] && source ~/.work.sh

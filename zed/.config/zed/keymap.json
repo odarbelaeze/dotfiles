@@ -17,7 +17,7 @@
       // Put key bindings here if you want them to work in normal & visual mode.
       ", o": ["projects::OpenRecent", { "create_new_window": false }],
       ", s f": "file_finder::Toggle",
-      ", n t": "project_panel::ToggleFocus",
+      "-": "project_panel::ToggleFocus",
       ", l r": "editor::Rename"
     }
   },
@@ -44,7 +44,7 @@
       // work when no editor exists.
       ", o": ["projects::OpenRecent", { "create_new_window": false }],
       ", s f": "file_finder::Toggle",
-      ", n t": "project_panel::ToggleFocus"
+      "-": "project_panel::ToggleFocus"
     }
   }
 ]

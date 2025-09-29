@@ -12,6 +12,9 @@ disabled = true
 [package]
 disabled = true
 
+[buf]
+disabled = true
+
 [git_branch]
 truncation_length = 18
 

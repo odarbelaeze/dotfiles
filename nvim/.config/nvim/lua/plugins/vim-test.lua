@@ -13,6 +13,9 @@ return {
       let test#python#pytest#options = {
         \ 'nearest': '--pdb',
       \}
+      let test#go#gotest#options = {
+        \ 'nearest': '-v',
+      \}
     ]]
   end,
 }

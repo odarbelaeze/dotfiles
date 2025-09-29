@@ -20,6 +20,9 @@
     }
   },
   "languages": {
+    "SQL": {
+      "show_edit_predictions": true
+    },
     "Go": {
       "show_edit_predictions": true
     }
@@ -52,7 +55,7 @@
   },
   "theme": {
     "mode": "system",
-    "light": "One Light",
-    "dark": "One Dark"
+    "light": "Ayu Light",
+    "dark": "Tokyo Night"
   }
 }
